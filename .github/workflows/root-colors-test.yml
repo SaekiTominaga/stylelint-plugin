@@ -21,4 +21,4 @@ jobs:
         with:
           node-version: '22'
       - run: npm ci
-      - run: npm test -w '@w0s/stylelint-root-colors'
+      - run: npm test -w 'stylelint-root-colors'
