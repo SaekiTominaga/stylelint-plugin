@@ -1,0 +1,22 @@
+{
+	"name": "stylelint-plugin",
+	"private": true,
+	"type": "module",
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"format": "prettier -w .",
+		"github-actions-lint": "yamllint .github/workflows/*.yml"
+	},
+	"devDependencies": {
+		"@w0s/eslint-config": "^5.3.0",
+		"@w0s/tsconfig": "^1.4.1",
+		"eslint": "^8.57.0",
+		"prettier": "^3.2.5",
+		"stylelint": "^16.0.0",
+		"stylelint-test-rule-node": "^0.2.1",
+		"typescript": "^5.4.5",
+		"yaml-lint": "^1.7.0"
+	}
+}

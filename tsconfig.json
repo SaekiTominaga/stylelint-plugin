@@ -1,0 +1,10 @@
+{
+	"extends": "@w0s/tsconfig",
+	"compilerOptions": {
+		/* Emit */
+		"declaration": true,
+
+		/* Completeness */
+		"skipLibCheck": true
+	}
+}
