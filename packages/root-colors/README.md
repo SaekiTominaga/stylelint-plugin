@@ -50,7 +50,7 @@ In this case, if only either `color` or `background-color` is specified in the r
 
 In Firefox, you can set text and background colors arbitrarily in the <q>Manage Colors</q>. The screenshot below shows the text in white and the background in black (i.e., dark mode).
 
-![Dialog with color selection palettes for Text, Background, Unvisited Links, and Visited Links](https://github.com/SaekiTominaga/w0s.jp/assets/4138486/31b80c12-fa36-4d8f-854f-a64515f2418b)
+![Dialog with color selection palettes for Text, Background, Unvisited Links, and Visited Links](https://github.com/SaekiTominaga/stylelint-plugin/assets/4138486/da4e43c0-4f33-4bd9-a2a1-709db8295b81)
 
 See also [F24 in Techniques for WCAG 2.2](https://www.w3.org/WAI/WCAG22/Techniques/failures/F24).
 
