@@ -12,19 +12,40 @@ const meta: stylelint.RuleMeta = {
 	url: 'https://github.com/SaekiTominaga/stylelint-plugin/blob/main/packages/root-colors/README.md',
 };
 
-const ruleFunction: stylelint.Rule = (primary) => (root, result) => {
-	const validOptions = utils.validateOptions(result, ruleName, {
-		actual: primary,
-	});
+const ruleFunction: stylelint.Rule = (primary, secondaryOptions?) => (root, result) => {
+	const validOptions = utils.validateOptions(
+		result,
+		ruleName,
+		{
+			actual: primary,
+			possible: [true],
+		},
+		{
+			actual: secondaryOptions,
+			possible: {
+				root: [(value) => typeof value === 'string'],
+			},
+			optional: true,
+		},
+	);
 
 	if (!validOptions) {
 		return;
 	}
 
+	let rootSelectors: string[] = [':root', 'html'];
+	if (secondaryOptions !== undefined) {
+		if (Array.isArray(secondaryOptions['root'])) {
+			rootSelectors = secondaryOptions['root'];
+		} else {
+			rootSelectors = [secondaryOptions['root']];
+		}
+	}
+
 	root.walkRules((ruleNode) => {
 		const { selector } = ruleNode;
 
-		if (![':root', 'html'].includes(selector)) {
+		if (!rootSelectors.includes(selector)) {
 			return;
 		}
 

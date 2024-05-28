@@ -3,7 +3,7 @@ import plugin, { ruleName, messages } from './index.js';
 
 testRule({
 	plugins: [plugin],
-	ruleName,
+	ruleName: ruleName,
 	config: true,
 
 	accept: [
@@ -78,6 +78,145 @@ testRule({
 			column: 1,
 			endLine: 1,
 			endColumn: 6,
+		},
+	],
+});
+
+testRule({
+	plugins: [plugin],
+	ruleName: ruleName,
+	config: [
+		true,
+		{
+			root: '.root',
+		},
+	],
+
+	accept: [
+		{
+			code: '.root { background-color: #000; color: #000 }',
+		},
+		{
+			code: '.root { color: #000; background: url(foo) #000 repeat }',
+		},
+		{
+			code: '.root {}',
+		},
+		{
+			code: ':root { color: #000 }',
+		},
+	],
+
+	reject: [
+		{
+			code: '.root { background-color: #000 }',
+			message: messages.rejected('.root'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 6,
+		},
+		{
+			code: '.root { background: url(foo) #000 repeat }',
+			message: messages.rejected('.root'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 6,
+		},
+		{
+			code: '.root { color: #000 }',
+			message: messages.rejected('.root'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 6,
+		},
+	],
+});
+
+testRule({
+	plugins: [plugin],
+	ruleName: ruleName,
+	config: [
+		true,
+		{
+			root: ['#root', '[element=root]'],
+		},
+	],
+
+	accept: [
+		{
+			code: '#root { background-color: #000; color: #000 }',
+		},
+		{
+			code: '#root { color: #000; background: url(foo) #000 repeat }',
+		},
+		{
+			code: '#root {}',
+		},
+		{
+			code: '[element=root] { background-color: #000; color: #000 }',
+		},
+		{
+			code: '[element=root] { color: #000; background: url(foo) #000 repeat }',
+		},
+		{
+			code: '[element=root] {}',
+		},
+		{
+			code: ':root { color: #000 }',
+		},
+	],
+
+	reject: [
+		{
+			code: '#root { background-color: #000 }',
+			message: messages.rejected('#root'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 6,
+		},
+		{
+			code: '#root { background: url(foo) #000 repeat }',
+			message: messages.rejected('#root'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 6,
+		},
+		{
+			code: '#root { color: #000 }',
+			message: messages.rejected('#root'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 6,
+		},
+		{
+			code: '[element=root] { background-color: #000 }',
+			message: messages.rejected('[element=root]'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 15,
+		},
+		{
+			code: '[element=root] { background: url(foo) #000 repeat }',
+			message: messages.rejected('[element=root]'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 15,
+		},
+		{
+			code: '[element=root] { color: #000 }',
+			message: messages.rejected('[element=root]'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 15,
 		},
 	],
 });

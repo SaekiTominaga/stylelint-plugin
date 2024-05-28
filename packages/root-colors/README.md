@@ -59,9 +59,20 @@ See also [F24 in Techniques for WCAG 2.2](https://www.w3.org/WAI/WCAG22/Techniqu
 ```javascript
 /** @type {import('stylelint').Config} */
 export default {
-	plugins: ['stylelint-root-colors'],
-	rules: {
-		'plugin/stylelint-root-colors': true,
-	},
+  plugins: ['stylelint-root-colors'],
+  rules: {
+    'plugin/stylelint-root-colors': [
+      true,
+      {
+        root: ['.root'],
+      },
+    ],
+  },
 };
 ```
+
+### Rule options
+
+| name   | type                 | description                                                                             |
+| ------ | -------------------- | --------------------------------------------------------------------------------------- |
+| `root` | `string \| string[]` | Specifies the selector of the root element. If omitted, it will be `[':root', 'html']`. |
