@@ -61,7 +61,7 @@ See also [F24 in Techniques for WCAG 2.2](https://www.w3.org/WAI/WCAG22/Techniqu
 export default {
   plugins: ['stylelint-root-colors'],
   rules: {
-    'plugin/stylelint-root-colors': [
+    'plugin/root-colors': [
       true,
       {
         root: ['.root'],
