@@ -2,7 +2,7 @@ import stylelint from 'stylelint';
 
 const { createPlugin, utils } = stylelint;
 
-export const ruleName = 'plugin/stylelint-root-colors';
+export const ruleName = 'plugin/root-colors';
 
 export const messages = utils.ruleMessages(ruleName, {
 	rejected: (selector) => `\`color\` and \`background-color\` must be specified as a set within selector \`${String(selector)}\``,
