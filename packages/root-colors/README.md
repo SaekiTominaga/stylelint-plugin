@@ -15,8 +15,7 @@ The root element is `:root { }` or `html { }`.
   color: #000;
 }
 
-/* 🆖 Do not specify only either `color` or `background-color` in the root element */
-:root {
+html, .foo {
   background-color: #fff;
 }
 

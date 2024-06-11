@@ -28,6 +28,9 @@ testRule({
 		{
 			code: '.foo { color: #000 }',
 		},
+		{
+			code: 'html, :root, .foo {}',
+		},
 	],
 
 	reject: [
@@ -78,6 +81,14 @@ testRule({
 			column: 1,
 			endLine: 1,
 			endColumn: 6,
+		},
+		{
+			code: 'html, :root, .foo { background-color: #000 }',
+			message: messages.rejected('html, :root, .foo'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 18,
 		},
 	],
 });
@@ -131,6 +142,14 @@ testRule({
 			column: 1,
 			endLine: 1,
 			endColumn: 6,
+		},
+		{
+			code: '.root, .foo { background-color: #000 }',
+			message: messages.rejected('.root, .foo'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 12,
 		},
 	],
 });
@@ -217,6 +236,14 @@ testRule({
 			column: 1,
 			endLine: 1,
 			endColumn: 15,
+		},
+		{
+			code: '[element=root], [element=foo] { background-color: #000 }',
+			message: messages.rejected('[element=root], [element=foo]'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 30,
 		},
 	],
 });
