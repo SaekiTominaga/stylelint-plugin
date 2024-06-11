@@ -43,9 +43,9 @@ const ruleFunction: stylelint.Rule = (primary, secondaryOptions?) => (root, resu
 	}
 
 	root.walkRules((ruleNode) => {
-		const { selector } = ruleNode;
+		const { selector, selectors } = ruleNode;
 
-		if (!rootSelectors.includes(selector)) {
+		if (!selectors.some((selectorPart) => rootSelectors.includes(selectorPart))) {
 			return;
 		}
 
