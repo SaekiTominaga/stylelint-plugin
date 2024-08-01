@@ -6,6 +6,17 @@ import w0sConfig from '@w0s/eslint-config';
 export default [
 	...w0sConfig,
 	{
-		ignores: ['packages/*/dist/'],
+		ignores: ['packages/*/dist'],
+	},
+	{
+		files: ['packages/*/src/**/*.ts'],
+		rules: {
+			'import/no-extraneous-dependencies': [
+				'error',
+				{
+					peerDependencies: true,
+				},
+			],
+		},
 	},
 ];
