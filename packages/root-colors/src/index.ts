@@ -33,12 +33,12 @@ const ruleFunction: stylelint.Rule = (primary, secondaryOptions?) => (root, resu
 		return;
 	}
 
-	let rootSelectors: string[] = [':root', 'html'];
+	let rootSelectors = [':root', 'html'];
 	if (secondaryOptions !== undefined) {
 		if (Array.isArray(secondaryOptions['root'])) {
-			rootSelectors = secondaryOptions['root'];
+			rootSelectors = secondaryOptions['root'] as string[];
 		} else {
-			rootSelectors = [secondaryOptions['root']];
+			rootSelectors = [secondaryOptions['root'] as string];
 		}
 	}
 
