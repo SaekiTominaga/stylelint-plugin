@@ -1,18 +1,20 @@
-import stylelint from 'stylelint';
+import stylelint, { type Rule, type RuleMeta } from 'stylelint';
 
 const { createPlugin, utils } = stylelint;
 
 export const ruleName = 'plugin/root-colors';
 
 export const messages = utils.ruleMessages(ruleName, {
-	rejected: (selector) => `\`color\` and \`background-color\` must be specified as a set within selector \`${String(selector)}\``,
+	rejected: (selector: string) => `\`color\` and \`background-color\` must be specified as a set within selector \`${selector}\``,
 });
 
-const meta: stylelint.RuleMeta = {
+const meta: Readonly<RuleMeta> = {
 	url: 'https://github.com/SaekiTominaga/stylelint-plugin/blob/main/packages/root-colors/README.md',
 };
 
-const ruleFunction: stylelint.Rule = (primary, secondaryOptions?) => (root, result) => {
+const DEFAULT_ROOT_SELECTORS: string[] = [':root', 'html'];
+
+const ruleFunction: Rule = (primary, secondaryOptions?) => (root, result) => {
 	const validOptions = utils.validateOptions(
 		result,
 		ruleName,
@@ -33,7 +35,7 @@ const ruleFunction: stylelint.Rule = (primary, secondaryOptions?) => (root, resu
 		return;
 	}
 
-	let rootSelectors = [':root', 'html'];
+	let rootSelectors = DEFAULT_ROOT_SELECTORS;
 	if (secondaryOptions !== undefined) {
 		if (Array.isArray(secondaryOptions['root'])) {
 			rootSelectors = secondaryOptions['root'] as string[];
@@ -75,8 +77,8 @@ const ruleFunction: stylelint.Rule = (primary, secondaryOptions?) => (root, resu
 		}
 
 		utils.report({
-			result,
-			ruleName,
+			result: result,
+			ruleName: ruleName,
 			message: messages.rejected(selector),
 			node: ruleNode,
 			word: selector,
