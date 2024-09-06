@@ -5,7 +5,7 @@ const { createPlugin, utils } = stylelint;
 export const ruleName = 'plugin/display-multi-keyword';
 
 export const messages = utils.ruleMessages(ruleName, {
-	rejected: (short, full) => `Use multi-keyword syntax (\`${String(short)}\` → \`${String(full)}\`)`,
+	rejected: (short: string, full: string) => `Use multi-keyword syntax (\`${short}\` → \`${full}\`)`,
 });
 
 const meta: Readonly<RuleMeta> = {
