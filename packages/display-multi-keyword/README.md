@@ -35,7 +35,12 @@ See [summary table in CSS Display Module Level 3](https://drafts.csswg.org/css-d
 export default {
   plugins: ['stylelint-display-multi-keyword'],
   rules: {
-    'plugin/display-multi-keyword': true,
+    'plugin/display-multi-keyword': [
+      true,
+      {
+        severity: 'warning',
+      },
+    ],
   },
 };
 ```
