@@ -1,6 +1,6 @@
 {
 	"name": "stylelint-root-colors",
-	"version": "0.0.3",
+	"version": "1.0.0",
 	"description": "`color` and `background-color` must be specified as a set in the root element",
 	"keywords": [
 		"stylelint-plugin",
