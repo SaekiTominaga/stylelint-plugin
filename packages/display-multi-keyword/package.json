@@ -1,6 +1,6 @@
 {
 	"name": "stylelint-display-multi-keyword",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Use multi-keyword values for `display` property",
 	"keywords": [
 		"stylelint-plugin"
