@@ -1,0 +1,38 @@
+{
+	"name": "stylelint-display-multi-keyword",
+	"version": "1.0.0",
+	"description": "Use multi-keyword values for `display` property",
+	"keywords": [
+		"stylelint-plugin"
+	],
+	"homepage": "https://github.com/SaekiTominaga/stylelint-plugin#readme",
+	"bugs": {
+		"url": "https://github.com/SaekiTominaga/stylelint-plugin/issues"
+	},
+	"license": "MIT",
+	"author": "Saeki Tominaga",
+	"files": [
+		"dist"
+	],
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SaekiTominaga/stylelint-plugin.git"
+	},
+	"scripts": {
+		"build": "tsc",
+		"watch": "tsc -w",
+		"lint": "eslint src/*.ts",
+		"pretest": "npm run build",
+		"test": "node dist/index.test.js"
+	},
+	"peerDependencies": {
+		"stylelint": "^16.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
