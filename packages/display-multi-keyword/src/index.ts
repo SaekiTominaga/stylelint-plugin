@@ -53,30 +53,25 @@ const ruleFunction: Rule = (primary, secondaryOptions?) => (root, result) => {
 	}
 
 	root.walkRules((ruleNode) => {
-		const { selector } = ruleNode;
-
-		let value: [string, string] | undefined;
-
 		ruleNode.walkDecls((decl) => {
 			if (decl.prop !== 'display') {
 				return;
 			}
 
-			value = Object.entries(DISPLAY_VALUE).find(([short]) => decl.value === short);
-		});
+			const value = Object.entries(DISPLAY_VALUE).find(([short]) => decl.value === short);
+			if (value === undefined) {
+				return;
+			}
 
-		if (value === undefined) {
-			return;
-		}
+			const [short, full] = value;
 
-		const [short, full] = value;
-
-		utils.report({
-			result,
-			ruleName,
-			message: messages.rejected(short, full),
-			node: ruleNode,
-			word: selector,
+			utils.report({
+				result: result,
+				ruleName: ruleName,
+				message: messages.rejected(short, full),
+				node: decl,
+				word: decl.value,
+			});
 		});
 	});
 };
