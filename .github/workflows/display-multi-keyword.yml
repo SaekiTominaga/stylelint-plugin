@@ -1,19 +1,14 @@
-name: root-colors-lint
+name: display-multi-keyword
 on:
   pull_request:
     branches:
       - main
     paths:
-      - 'packages/root-colors/src/*.ts'
-  push:
-    branches:
-      - main
-    paths:
-      - 'packages/root-colors/src/*.ts'
+      - 'packages/display-multi-keyword/src/**/*.ts'
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,4 +16,4 @@ jobs:
         with:
           node-version: '22'
       - run: npm ci
-      - run: npm run lint -w 'stylelint-root-colors'
+      - run: npm test -w 'stylelint-display-multi-keyword'
