@@ -14,7 +14,7 @@ const meta: Readonly<RuleMeta> = {
 
 const DEFAULT_ROOT_SELECTORS: string[] = [':root', 'html'];
 
-const ruleFunction: Rule = (primary, secondaryOptions?) => (root, result) => {
+const ruleFunction: Rule = (primary: unknown, secondaryOptions?: { root: string | string[] }) => (root, result) => {
 	const validOptions = utils.validateOptions(
 		result,
 		ruleName,
@@ -37,10 +37,10 @@ const ruleFunction: Rule = (primary, secondaryOptions?) => (root, result) => {
 
 	let rootSelectors = DEFAULT_ROOT_SELECTORS;
 	if (secondaryOptions !== undefined) {
-		if (Array.isArray(secondaryOptions['root'])) {
-			rootSelectors = secondaryOptions['root'] as string[];
+		if (Array.isArray(secondaryOptions.root)) {
+			rootSelectors = secondaryOptions.root;
 		} else {
-			rootSelectors = [secondaryOptions['root'] as string];
+			rootSelectors = [secondaryOptions.root];
 		}
 	}
 

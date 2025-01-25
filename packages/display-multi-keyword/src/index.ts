@@ -31,7 +31,7 @@ const DISPLAY_VALUE: Readonly<Record<string, string>> = {
 	'inline-table': 'inline table',
 };
 
-const ruleFunction: Rule = (primary) => (root, result) => {
+const ruleFunction: Rule = (primary: unknown) => (root, result) => {
 	const validOptions = utils.validateOptions(result, ruleName, {
 		actual: primary,
 		possible: [true],
