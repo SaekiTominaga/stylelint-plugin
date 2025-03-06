@@ -1,0 +1,9 @@
+/* stylelint-display-multi-keyword*/
+.block {
+	display: block;
+}
+
+/* stylelint-root-colors */
+:root {
+	color: red;
+}
