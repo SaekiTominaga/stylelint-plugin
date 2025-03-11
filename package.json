@@ -7,16 +7,16 @@
 		"yaml-lint": "yamllint .github/workflows/*.yml"
 	},
 	"dependencies": {
-		"stylelint": "^16.13.2"
+		"stylelint": "^16.15.0"
 	},
 	"devDependencies": {
 		"@types/node": "^22.13.10",
-		"@w0s/eslint-config": "^8.3.0",
+		"@w0s/eslint-config": "^8.4.0",
 		"@w0s/tsconfig": "^1.5.1",
-		"eslint": "^9.19.0",
-		"prettier": "^3.4.2",
-		"stylelint-test-rule-node": "^0.3.0",
-		"typescript": "^5.7.3",
+		"eslint": "^9.22.0",
+		"prettier": "^3.5.3",
+		"stylelint-test-rule-node": "^0.4.0",
+		"typescript": "^5.8.2",
 		"yaml-lint": "^1.7.0"
 	},
 	"private": true,
