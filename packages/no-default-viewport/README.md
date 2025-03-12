@@ -5,7 +5,7 @@
 
 ## Summary
 
-Disallow the use of default viewport-percentage units (`vw`, `vh`, `vi`, `vb`, `vmin`, `vmax`) and use small viewport-percentage units (e.g. `svi`), large viewport-percentage units (e.g. `lvi`) or dynamic viewport-percentage units (e.g. `dvi`).
+Disallow default viewport-percentage units (`vw`, `vh`, `vi`, `vb`, `vmin`, `vmax`) and use small viewport-percentage units (e.g. `svi`), large viewport-percentage units (e.g. `lvi`) or dynamic viewport-percentage units (e.g. `dvi`).
 
 ```css
 /* 🆖 default viewport-percentage units */

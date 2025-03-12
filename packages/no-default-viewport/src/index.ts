@@ -7,7 +7,7 @@ export const ruleName = 'plugin/no-default-viewport';
 
 export const messages = utils.ruleMessages(ruleName, {
 	rejected: (defaultUnit: string) =>
-		`Disallow the use of default viewport-percentage units (\`${defaultUnit}\` → \`s${defaultUnit}\`, \`l${defaultUnit}\` or \`d${defaultUnit}\`)`,
+		`Disallow default viewport-percentage units (\`${defaultUnit}\` → \`s${defaultUnit}\`, \`l${defaultUnit}\` or \`d${defaultUnit}\`)`,
 });
 
 const meta: Readonly<RuleMeta> = {

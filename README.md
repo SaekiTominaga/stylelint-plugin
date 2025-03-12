@@ -13,5 +13,5 @@
 <dt><a href="packages/display-multi-keyword">stylelint-display-multi-keyword</a></dt>
 <dd>Use multi-keyword values for <code>display</code> property</dd>
 <dt><a href="packages/no-default-viewport">stylelint-no-default-viewport</a></dt>
-<dd>Disallow the use of default viewport-percentage units</dd>
+<dd>Disallow default viewport-percentage units</dd>
 </dl>
