@@ -1,7 +1,7 @@
-# stylelint-viewport-explicit
+# stylelint-no-default-viewport
 
-[![npm version](https://badge.fury.io/js/stylelint-viewport-explicit.svg)](https://www.npmjs.com/package/stylelint-viewport-explicit)
-[![Workflow status](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/viewport-explicit.yml/badge.svg)](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/viewport-explicit.yml)
+[![npm version](https://badge.fury.io/js/stylelint-no-default-viewport.svg)](https://www.npmjs.com/package/stylelint-no-default-viewport)
+[![Workflow status](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/no-default-viewport.yml/badge.svg)](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/no-default-viewport.yml)
 
 ## Summary
 
@@ -28,9 +28,9 @@ See [Viewport-percentage Lengths in CSS Values and Units Module Level 4](https:/
 ```javascript
 /** @type {import('stylelint').Config} */
 export default {
-  plugins: ['stylelint-viewport-explicit'],
+  plugins: ['stylelint-no-default-viewport'],
   rules: {
-    'plugin/viewport-explicit': [
+    'plugin/no-default-viewport': [
       true,
       {
         severity: 'warning',

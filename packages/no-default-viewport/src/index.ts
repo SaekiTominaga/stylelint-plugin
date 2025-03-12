@@ -3,7 +3,7 @@ import { getUnit } from './util/syntax.js';
 
 const { createPlugin, utils } = stylelint;
 
-export const ruleName = 'plugin/viewport-explicit';
+export const ruleName = 'plugin/no-default-viewport';
 
 export const messages = utils.ruleMessages(ruleName, {
 	rejected: (defaultUnit: string) =>
@@ -11,7 +11,7 @@ export const messages = utils.ruleMessages(ruleName, {
 });
 
 const meta: Readonly<RuleMeta> = {
-	url: 'https://github.com/SaekiTominaga/stylelint-plugin/blob/main/packages/viewport-explicit/README.md',
+	url: 'https://github.com/SaekiTominaga/stylelint-plugin/blob/main/packages/no-default-viewport/README.md',
 };
 
 const DEFAULT_VIEWPORT_PERCENTAGE_UNITS: string[] = [

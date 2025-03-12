@@ -1,5 +1,5 @@
 {
-	"name": "stylelint-viewport-explicit",
+	"name": "stylelint-no-default-viewport",
 	"version": "1.0.0",
 	"description": "Disallow the use of default viewport-percentage units",
 	"keywords": [

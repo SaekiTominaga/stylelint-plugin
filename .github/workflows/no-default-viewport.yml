@@ -1,10 +1,10 @@
-name: viewport-explicit
+name: no-default-viewport
 on:
   pull_request:
     branches:
       - main
     paths:
-      - 'packages/viewport-explicit/src/**/*.ts'
+      - 'packages/no-default-viewport/src/**/*.ts'
   workflow_dispatch:
 
 jobs:
@@ -16,4 +16,4 @@ jobs:
         with:
           node-version: '22'
       - run: npm ci
-      - run: npm test -w 'stylelint-viewport-explicit'
+      - run: npm test -w 'stylelint-no-default-viewport'

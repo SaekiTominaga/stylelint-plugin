@@ -1,6 +1,6 @@
 import pluginDisplayMultiKeyword from '../packages/display-multi-keyword/dist/index.js';
 import pluginRootColors from '../packages/root-colors/dist/index.js';
-import pluginViewportExplicit from '../packages/viewport-explicit/dist/index.js';
+import pluginViewportExplicit from '../packages/no-default-viewport/dist/index.js';
 
 /** @type {import('stylelint').Config} */
 export default {
@@ -17,8 +17,8 @@ export default {
 		/* [plugin] stylelint-root-colors */
 		'plugin/root-colors': true,
 
-		/* [plugin] viewport-explicit */
-		'plugin/viewport-explicit': [
+		/* [plugin] no-default-viewport */
+		'plugin/no-default-viewport': [
 			true,
 			{
 				severity: 'warning',
