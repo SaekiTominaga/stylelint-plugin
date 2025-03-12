@@ -1,14 +1,14 @@
-/* stylelint-display-multi-keyword*/
+/* display-multi-keyword*/
 .block {
 	display: block;
-}
-
-/* stylelint-root-colors */
-:root {
-	color: red;
 }
 
 /* no-default-viewport */
 .box {
 	margin: 10lvi 10vb;
+}
+
+/* root-colors */
+:root {
+	color: red;
 }
