@@ -1,0 +1,19 @@
+name: no-default-viewport
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'packages/no-default-viewport/src/**/*.ts'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npm test -w 'stylelint-no-default-viewport'
