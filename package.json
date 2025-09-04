@@ -3,8 +3,7 @@
 	"type": "module",
 	"scripts": {
 		"format": "prettier -w .",
-		"js-lint": "eslint packages/*/src/**/*.ts",
-		"yaml-lint": "yamllint .github/workflows/*.yml"
+		"js-lint": "eslint packages/*/src/**/*.ts"
 	},
 	"dependencies": {
 		"stylelint": "^16.15.0"
@@ -16,8 +15,7 @@
 		"eslint": "^9.22.0",
 		"prettier": "^3.5.3",
 		"stylelint-test-rule-node": "^0.4.0",
-		"typescript": "^5.8.2",
-		"yaml-lint": "^1.7.0"
+		"typescript": "^5.8.2"
 	},
 	"private": true,
 	"workspaces": [
