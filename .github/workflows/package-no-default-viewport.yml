@@ -1,8 +1,6 @@
 name: no-default-viewport
 on:
   pull_request:
-    branches:
-      - main
     paths:
       - 'packages/no-default-viewport/src/**/*.ts'
   workflow_dispatch:
