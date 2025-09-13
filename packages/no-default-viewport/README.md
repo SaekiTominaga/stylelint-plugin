@@ -1,7 +1,7 @@
 # stylelint-no-default-viewport
 
 [![npm version](https://badge.fury.io/js/stylelint-no-default-viewport.svg)](https://www.npmjs.com/package/stylelint-no-default-viewport)
-[![Workflow status](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/no-default-viewport.yml/badge.svg)](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/no-default-viewport.yml)
+[![Workflow status](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/package-no-default-viewport.yml/badge.svg)](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/package-no-default-viewport.yml)
 
 ## Summary
 
