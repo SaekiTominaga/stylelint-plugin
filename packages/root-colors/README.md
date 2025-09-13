@@ -1,7 +1,7 @@
 # stylelint-root-colors
 
 [![npm version](https://badge.fury.io/js/stylelint-root-colors.svg)](https://www.npmjs.com/package/stylelint-root-colors)
-[![Workflow status](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/root-colors.yml/badge.svg)](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/root-colors.yml)
+[![Workflow status](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/package-root-colors.yml/badge.svg)](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/package-root-colors.yml)
 
 ## Summary
 

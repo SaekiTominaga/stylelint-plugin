@@ -1,7 +1,7 @@
 # stylelint-display-multi-keyword
 
 [![npm version](https://badge.fury.io/js/stylelint-display-multi-keyword.svg)](https://www.npmjs.com/package/stylelint-display-multi-keyword)
-[![Workflow status](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/display-multi-keyword.yml/badge.svg)](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/display-multi-keyword.yml)
+[![Workflow status](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/package-display-multi-keyword.yml/badge.svg)](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/package-display-multi-keyword.yml)
 
 ## Summary
 
