@@ -9,11 +9,12 @@
 		"stylelint": "^16.15.0"
 	},
 	"devDependencies": {
-		"@types/node": "^22.13.10",
-		"@w0s/eslint-config": "^8.4.0",
-		"@w0s/tsconfig": "^1.5.1",
-		"eslint": "^9.22.0",
-		"prettier": "^3.5.3",
+		"@types/node": "^24.3.3",
+		"@w0s/eslint-config": "^8.6.0",
+		"@w0s/tsconfig": "^1.6.1",
+		"eslint": "^9.35.0",
+		"prettier": "^3.6.2",
+		"rimraf": "^6.0.1",
 		"stylelint-test-rule-node": "^0.4.0",
 		"typescript": "^5.8.2"
 	},

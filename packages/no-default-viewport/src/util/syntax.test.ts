@@ -1,6 +1,6 @@
 import { strict as assert } from 'node:assert';
 import { test } from 'node:test';
-import { getUnit } from './syntax.js';
+import { getUnit } from './syntax.ts';
 
 const DEFAULT_VIEWPORT_PERCENTAGE_UNITS = ['vw', 'vh', 'vi', 'vb', 'vmin', 'vmax'];
 

@@ -13,9 +13,7 @@
 	"author": "Saeki Tominaga",
 	"files": [
 		"dist/**/*.d.ts",
-		"!dist/**/*.test.d.ts",
-		"dist/**/*.js",
-		"!dist/**/*.test.js"
+		"dist/**/*.js"
 	],
 	"type": "module",
 	"main": "dist/index.js",
@@ -26,11 +24,11 @@
 		"url": "git+https://github.com/SaekiTominaga/stylelint-plugin.git"
 	},
 	"scripts": {
+		"prebuild": "rimraf dist/* -g",
 		"build": "tsc",
 		"watch": "tsc -w",
-		"lint": "eslint src/*.ts",
-		"pretest": "npm run build",
-		"test": "node dist/index.test.js & node --experimental-test-coverage --test dist/util/*.test.js"
+		"lint": "eslint src/**/*.ts",
+		"test": "node src/index.test.ts & node --experimental-test-coverage --test src/util/*.test.ts"
 	},
 	"peerDependencies": {
 		"stylelint": "^16.0.0"
