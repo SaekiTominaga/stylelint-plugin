@@ -1,5 +1,5 @@
 import stylelint, { type Rule, type RuleMeta } from 'stylelint';
-import { getUnit } from './util/syntax.js';
+import { getUnit } from './util/syntax.ts';
 
 const { createPlugin, utils } = stylelint;
 
