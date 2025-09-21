@@ -28,7 +28,6 @@
 	"scripts": {
 		"prebuild": "rimraf dist/* -g",
 		"build": "tsc",
-		"watch": "tsc -w",
 		"lint": "eslint src/**/*.ts",
 		"test": "node src/index.test.ts"
 	},
