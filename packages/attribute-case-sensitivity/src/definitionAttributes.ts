@@ -38,6 +38,7 @@ export const insensitivelyBases: AttributeList = [
 	'translate',
 	'type',
 
+	'role',
 	'aria-atomic',
 	'aria-autocomplete',
 	'aria-busy',
