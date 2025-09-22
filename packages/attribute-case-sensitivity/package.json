@@ -27,7 +27,7 @@
 		"prebuild": "rimraf dist/* -g",
 		"build": "tsc",
 		"lint": "eslint src/**/*.ts",
-		"test": "node src/index.test.ts"
+		"test": "node src/index.test.ts & node --experimental-test-coverage --test src/util/*.test.ts"
 	},
 	"dependencies": {
 		"postcss-selector-parser": "^7.1.0"
