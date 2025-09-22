@@ -23,4 +23,4 @@ jobs:
         with:
           node-version: '24'
       - run: npm ci
-      - run: npm test -w 'stylelint-plugin-attribute-case-sensitivity'
+      - run: npm test -w 'stylelint-attribute-case-sensitivity'
