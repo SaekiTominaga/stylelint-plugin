@@ -43,6 +43,10 @@ const ruleFunction: Rule = (primary: unknown, secondaryOptions: Readonly<{ defau
 	root.walkRules((ruleNode) => {
 		selectorParser((selectors) => {
 			selectors.walkAttributes((attr) => {
+				if (attr.value === undefined) {
+					return;
+				}
+
 				// @ts-expect-error: ts(2551)
 				const identifier = attr.insensitive ? 'i' : (attr.raws.insensitiveFlag as string | undefined)?.toLowerCase();
 

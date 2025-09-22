@@ -10,6 +10,9 @@ testRule({
 		{
 			code: 'foo {}',
 		},
+		{
+			code: '[foo] {}',
+		},
 	],
 
 	reject: [
