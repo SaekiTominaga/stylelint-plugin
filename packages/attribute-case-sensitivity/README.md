@@ -50,4 +50,4 @@ export default {
 | `i`       | `boolean` | Whether to allow case-insensitively (`i`). If omitted, it will be `false`. |
 | `s`       | `boolean` | Whether to allow case-sensitively (`s`). If omitted, it will be `false`.   |
 
-\* While it is possible to omit all properties (`{}`), we do not recommend doing so. In that case, all attribute selectors will result in errors.
+\* While it is possible to omit all properties (`{}`), we do not recommend doing so. In that case, all attribute selectors will result in an error unless they have no value.
