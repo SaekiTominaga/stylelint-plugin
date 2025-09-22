@@ -26,7 +26,7 @@
 
 <dl>
   <div>
-    <dt><a href="packages/attribute-case-sensitivity">stylelint-plugin-attribute-case-sensitivity</a></dt>
+    <dt><a href="packages/attribute-case-sensitivity">stylelint-attribute-case-sensitivity</a></dt>
     <dd>Allow or disallow case-sensitivity for attribute selectors</dd>
   </div>
 </dl>

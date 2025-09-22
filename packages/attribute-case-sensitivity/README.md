@@ -1,6 +1,6 @@
-# stylelint-plugin-attribute-case-sensitivity
+# stylelint-attribute-case-sensitivity
 
-[![npm version](https://badge.fury.io/js/stylelint-plugin-attribute-case-sensitivity.svg)](https://www.npmjs.com/package/stylelint-plugin-attribute-case-sensitivity)
+[![npm version](https://badge.fury.io/js/stylelint-attribute-case-sensitivity.svg)](https://www.npmjs.com/package/stylelint-attribute-case-sensitivity)
 [![Workflow status](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/package-attribute-case-sensitivity.yml/badge.svg)](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/package-attribute-case-sensitivity.yml)
 
 ## Summary
@@ -28,7 +28,7 @@ input[type='text' s] {
 ```javascript
 /** @type {import('stylelint').Config} */
 export default {
-  plugins: ['stylelint-plugin-attribute-case-sensitivity'],
+  plugins: ['stylelint-attribute-case-sensitivity'],
   rules: {
     'plugin/attribute-case-sensitivity': [
       true,
