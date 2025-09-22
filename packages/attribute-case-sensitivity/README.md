@@ -42,5 +42,12 @@ export default {
 };
 ```
 
-- If any property of the second options is omitted, it defaults to `false`. (e.g. `{ i: true }` === `{ default: false, i: true, s: false }`)
-- While it is possible to omit all properties (`{}`), we do not recommend doing so. In that case, all attribute selectors will result in errors.
+### Rule options
+
+| name      | type      | description                                                                |
+| --------- | --------- | -------------------------------------------------------------------------- |
+| `default` | `boolean` | Whether to allow default case sensitivity. If omitted, it will be `false`. |
+| `i`       | `boolean` | Whether to allow case-insensitively (`i`). If omitted, it will be `false`. |
+| `s`       | `boolean` | Whether to allow case-sensitively (`s`). If omitted, it will be `false`.   |
+
+\* While it is possible to omit all properties (`{}`), we do not recommend doing so. In that case, all attribute selectors will result in errors.
