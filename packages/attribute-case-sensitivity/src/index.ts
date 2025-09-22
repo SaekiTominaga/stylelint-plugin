@@ -1,6 +1,7 @@
 import stylelint, { type Rule, type RuleMeta } from 'stylelint';
 import selectorParser from 'postcss-selector-parser';
 import { defaultBases, insensitivelyBases, sensitivelyBases, type AttributeList } from './definitionAttributes.ts';
+import { isMatch as isAttributeMatch } from './util/attribute.ts';
 
 const { createPlugin, utils } = stylelint;
 
@@ -18,15 +19,6 @@ export const messages = utils.ruleMessages(ruleName, {
 const meta: Readonly<RuleMeta> = {
 	url: 'https://github.com/SaekiTominaga/stylelint-plugin/blob/main/packages/attribute-case-sensitivity/README.md',
 };
-
-const isMatche = (value: string, list: (string | RegExp)[]): boolean =>
-	list.some((item) => {
-		if (item instanceof RegExp) {
-			return item.test(value);
-		}
-
-		return value === item;
-	});
 
 const ruleFunction: Rule =
 	(
@@ -74,13 +66,18 @@ const ruleFunction: Rule =
 					const insensitivelyAttributes = secondaryOptions?.i ?? insensitivelyBases;
 					const sensitivelyAttributes = secondaryOptions?.s ?? sensitivelyBases;
 
-					if (isMatche(attr.attribute, degaultAttributes) && identifier === undefined) {
+					if (!isAttributeMatch(attr.attribute, [...degaultAttributes, ...insensitivelyAttributes, ...sensitivelyAttributes])) {
+						/* 定義されていない属性はチェック対象外 */
 						return;
 					}
-					if (isMatche(attr.attribute, insensitivelyAttributes) && identifier === 'i') {
+
+					if (isAttributeMatch(attr.attribute, degaultAttributes) && identifier === undefined) {
 						return;
 					}
-					if (isMatche(attr.attribute, sensitivelyAttributes) && identifier === 's') {
+					if (isAttributeMatch(attr.attribute, insensitivelyAttributes) && identifier === 'i') {
+						return;
+					}
+					if (isAttributeMatch(attr.attribute, sensitivelyAttributes) && identifier === 's') {
 						return;
 					}
 
