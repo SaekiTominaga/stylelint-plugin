@@ -1,0 +1,65 @@
+export type AttributeList = (string | RegExp)[];
+
+export const defaultBases: AttributeList = [
+	'class',
+	'for',
+	'id',
+	'name',
+	'tabindex',
+
+	/^data-/v,
+
+	'aria-activedescendant',
+	'aria-controls',
+	'aria-describedby',
+	'aria-details',
+	'aria-errormessage',
+	'aria-flowto',
+	'aria-labelledby',
+	'aria-owns',
+];
+
+export const insensitivelyBases: AttributeList = [
+	'autocomplete',
+	'charset',
+	'contenteditable',
+	'crossorigin',
+	'dir',
+	'enctype',
+	'hidden',
+	'hreflang',
+	'http-equiv',
+	'lang',
+	'method',
+	'rel',
+	'spellcheck',
+	'style',
+	'target',
+	'translate',
+	'type',
+
+	'aria-atomic',
+	'aria-autocomplete',
+	'aria-busy',
+	'aria-checked',
+	'aria-current',
+	'aria-disabled',
+	'aria-expanded',
+	'aria-haspopup',
+	'aria-hidden',
+	'aria-invalid',
+	'aria-keyshortcuts',
+	'aria-live',
+	'aria-modal',
+	'aria-multiline',
+	'aria-multiselectable',
+	'aria-orientation',
+	'aria-pressed',
+	'aria-readonly',
+	'aria-relevant',
+	'aria-required',
+	'aria-selected',
+	'aria-sort',
+];
+
+export const sensitivelyBases: AttributeList = [];

@@ -4,7 +4,7 @@ import plugin, { ruleName, messages } from './index.ts';
 testRule({
 	plugins: [plugin],
 	ruleName: ruleName,
-	config: [true, {}],
+	config: true,
 
 	accept: [
 		{
@@ -13,214 +13,138 @@ testRule({
 		{
 			code: '[foo] {}',
 		},
-	],
-
-	reject: [
 		{
-			code: `
-[type="foo"] {
-}
-`,
-			message: messages.rejected('[type="foo"]', ''),
-			line: 2,
-			column: 1,
-			endLine: 3,
-			endColumn: 2,
+			code: '[class="foo"] {}',
 		},
 		{
-			code: `
-[type="foo" i] {
-}
-`,
-			message: messages.rejected('[type="foo" i]', 'i'),
-			line: 2,
-			column: 1,
-			endLine: 3,
-			endColumn: 2,
-		},
-		{
-			code: `
-[type="foo" s] {
-}
-`,
-			message: messages.rejected('[type="foo" s]', 's'),
-			line: 2,
-			column: 1,
-			endLine: 3,
-			endColumn: 2,
-		},
-	],
-});
-
-testRule({
-	plugins: [plugin],
-	ruleName: ruleName,
-	config: [
-		true,
-		{
-			default: true,
-		},
-	],
-
-	accept: [
-		{
-			code: '[type="foo"] {}',
-		},
-	],
-
-	reject: [
-		{
-			code: `
-[type="foo" i] {
-}
-`,
-			message: messages.rejected('[type="foo" i]', 'i'),
-			line: 2,
-			column: 1,
-			endLine: 3,
-			endColumn: 2,
-		},
-		{
-			code: `
-[type="foo" s] {
-}
-`,
-			message: messages.rejected('[type="foo" s]', 's'),
-			line: 2,
-			column: 1,
-			endLine: 3,
-			endColumn: 2,
-		},
-	],
-});
-
-testRule({
-	plugins: [plugin],
-	ruleName: ruleName,
-	config: [
-		true,
-		{
-			i: true,
-		},
-	],
-
-	accept: [
-		{
-			code: '[type="foo" i] {}',
-		},
-		{
-			code: '[type="foo" I] {}',
-		},
-	],
-
-	reject: [
-		{
-			code: `
-[type="foo"] {
-}
-`,
-			message: messages.rejected('[type="foo"]', ''),
-			line: 2,
-			column: 1,
-			endLine: 3,
-			endColumn: 2,
-		},
-		{
-			code: `
-[type="foo" s] {
-}
-`,
-			message: messages.rejected('[type="foo" s]', 's'),
-			line: 2,
-			column: 1,
-			endLine: 3,
-			endColumn: 2,
-		},
-	],
-});
-
-testRule({
-	plugins: [plugin],
-	ruleName: ruleName,
-	config: [
-		true,
-		{
-			s: true,
-		},
-	],
-
-	accept: [
-		{
-			code: '[type="foo" s] {}',
-		},
-		{
-			code: '[type="foo" S] {}',
-		},
-	],
-
-	reject: [
-		{
-			code: `
-[type="foo"] {
-}
-`,
-			message: messages.rejected('[type="foo"]', ''),
-			line: 2,
-			column: 1,
-			endLine: 3,
-			endColumn: 2,
-		},
-		{
-			code: `
-[type="foo" i] {
-}
-`,
-			message: messages.rejected('[type="foo" i]', 'i'),
-			line: 2,
-			column: 1,
-			endLine: 3,
-			endColumn: 2,
-		},
-	],
-});
-
-testRule({
-	plugins: [plugin],
-	ruleName: ruleName,
-	config: [
-		true,
-		{
-			default: true,
-			i: true,
-			s: true,
-		},
-	],
-
-	accept: [
-		{
-			code: '[type="foo"] {}',
+			code: '[data-xxx="foo"] {}',
 		},
 		{
 			code: '[type="foo" i] {}',
 		},
+	],
+
+	reject: [
 		{
-			code: '[type="foo" I] {}',
+			code: `
+[class="foo" i] {
+}
+`,
+			message: messages.rejected('[class="foo" i]', 'i'),
+			line: 2,
+			column: 1,
+			endLine: 3,
+			endColumn: 2,
 		},
 		{
-			code: '[type="foo" s] {}',
+			code: `
+[data-xxx="foo" i] {
+}
+`,
+			message: messages.rejected('[data-xxx="foo" i]', 'i'),
+			line: 2,
+			column: 1,
+			endLine: 3,
+			endColumn: 2,
 		},
 		{
-			code: '[type="foo" S] {}',
+			code: `
+[type="foo"] {
+}
+`,
+			message: messages.rejected('[type="foo"]', ''),
+			line: 2,
+			column: 1,
+			endLine: 3,
+			endColumn: 2,
+		},
+		{
+			code: `
+[xxx="foo" s] {
+}
+`,
+			message: messages.rejected('[xxx="foo" s]', 's'),
+			line: 2,
+			column: 1,
+			endLine: 3,
+			endColumn: 2,
+		},
+	],
+});
+
+testRule({
+	plugins: [plugin],
+	ruleName: ruleName,
+	config: [
+		true,
+		{
+			default: ['foo'],
+			i: ['bar1', 'bar2'],
+			s: ['baz'],
+		},
+	],
+
+	accept: [
+		{
+			code: 'foo {}',
+		},
+		{
+			code: '[foo] {}',
+		},
+		{
+			code: '[foo="xxx"] {}',
+		},
+		{
+			code: '[bar1="xxx" i] {}',
+		},
+		{
+			code: '[bar2="xxx" i] {}',
+		},
+		{
+			code: '[baz="xxx" s] {}',
 		},
 	],
 
 	reject: [
 		{
 			code: `
-[type="foo" x] {
+[foo="xxx" i] {
 }
 `,
-			message: messages.rejected('[type="foo" x]', 'x'),
+			message: messages.rejected('[foo="xxx" i]', 'i'),
+			line: 2,
+			column: 1,
+			endLine: 3,
+			endColumn: 2,
+		},
+		{
+			code: `
+[bar1="xxx"] {
+}
+`,
+			message: messages.rejected('[bar1="xxx"]', ''),
+			line: 2,
+			column: 1,
+			endLine: 3,
+			endColumn: 2,
+		},
+		{
+			code: `
+[bar1="xxx" s] {
+}
+`,
+			message: messages.rejected('[bar1="xxx" s]', 's'),
+			line: 2,
+			column: 1,
+			endLine: 3,
+			endColumn: 2,
+		},
+		{
+			code: `
+[baz="xxx"] {
+}
+`,
+			message: messages.rejected('[baz="xxx"]', ''),
 			line: 2,
 			column: 1,
 			endLine: 3,

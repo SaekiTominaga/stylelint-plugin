@@ -33,9 +33,9 @@ export default {
     'plugin/attribute-case-sensitivity': [
       true,
       {
-        default: false,
-        i: true,
-        s: false,
+        default: ['class', 'for', 'id', 'name', 'tabindex', /^data-/v],
+        i: ['hreflang', 'lang', 'method', 'rel', 'type'],
+        s: [],
       },
     ],
   },
@@ -44,10 +44,12 @@ export default {
 
 ### Rule options
 
-| name      | type      | description                                                                |
-| --------- | --------- | -------------------------------------------------------------------------- |
-| `default` | `boolean` | Whether to allow default case sensitivity. If omitted, it will be `false`. |
-| `i`       | `boolean` | Whether to allow case-insensitively (`i`). If omitted, it will be `false`. |
-| `s`       | `boolean` | Whether to allow case-sensitively (`s`). If omitted, it will be `false`.   |
+| name      | type                   | description                                             |
+| --------- | ---------------------- | ------------------------------------------------------- |
+| `default` | `(string \| RegExp)[]` | List of attribute names that enforce no identifier      |
+| `i`       | `(string \| RegExp)[]` | List of attribute names that enforce the identifier `i` |
+| `s`       | `(string \| RegExp)[]` | List of attribute names that enforce the identifier `s` |
 
-\* While it is possible to omit all properties (`{}`), we do not recommend doing so. In that case, all attribute selectors will result in an error unless they have no value.
+\* For all properties, if omitted, [the default values](src/definitionAttributes.ts) is set.
+
+\* If you wish to add attributes to the default values, please submit an issue.
