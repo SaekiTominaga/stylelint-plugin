@@ -74,6 +74,11 @@ const ruleFunction: Rule =
 					const insensitivelyAttributes = secondaryOptions?.i ?? insensitivelyBases;
 					const sensitivelyAttributes = secondaryOptions?.s ?? sensitivelyBases;
 
+					if (!isMatche(attr.attribute, [...degaultAttributes, ...insensitivelyAttributes, ...sensitivelyAttributes])) {
+						/* 定義されていない属性はチェック対象外 */
+						return;
+					}
+
 					if (isMatche(attr.attribute, degaultAttributes) && identifier === undefined) {
 						return;
 					}

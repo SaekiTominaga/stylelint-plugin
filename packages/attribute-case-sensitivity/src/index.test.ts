@@ -14,6 +14,15 @@ testRule({
 			code: '[foo] {}',
 		},
 		{
+			code: '[foo=""] {}',
+		},
+		{
+			code: '[foo="" i] {}',
+		},
+		{
+			code: '[foo="" s] {}',
+		},
+		{
 			code: '[class="foo"] {}',
 		},
 		{
@@ -60,10 +69,10 @@ testRule({
 		},
 		{
 			code: `
-[xxx="foo" s] {
+[type="foo" s] {
 }
 `,
-			message: messages.rejected('[xxx="foo" s]', 's'),
+			message: messages.rejected('[type="foo" s]', 's'),
 			line: 2,
 			column: 1,
 			endLine: 3,
