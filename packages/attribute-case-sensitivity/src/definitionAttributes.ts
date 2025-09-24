@@ -9,14 +9,14 @@ export const defaultBases: AttributeList = [
 
 	/^data-/v,
 
-	'aria-activedescendant',
-	'aria-controls',
-	'aria-describedby',
-	'aria-details',
-	'aria-errormessage',
-	'aria-flowto',
-	'aria-labelledby',
-	'aria-owns',
+	'aria-activedescendant', // ID reference
+	'aria-controls', // ID reference list
+	'aria-describedby', // ID reference list
+	'aria-details', // ID reference list
+	'aria-errormessage', // ID reference list
+	'aria-flowto', // ID reference list
+	'aria-labelledby', // ID reference list
+	'aria-owns', // ID reference list
 ];
 
 export const insensitivelyBases: AttributeList = [
@@ -38,29 +38,30 @@ export const insensitivelyBases: AttributeList = [
 	'translate',
 	'type',
 
+	/* "modern browsers treat the role or aria-* attribute values as ASCII case-insensitive" https://www.w3.org/TR/html-aria/#case-sensitivity */
 	'role',
-	'aria-atomic',
-	'aria-autocomplete',
-	'aria-busy',
-	'aria-checked',
-	'aria-current',
-	'aria-disabled',
-	'aria-expanded',
-	'aria-haspopup',
-	'aria-hidden',
-	'aria-invalid',
-	'aria-keyshortcuts',
-	'aria-live',
-	'aria-modal',
-	'aria-multiline',
-	'aria-multiselectable',
-	'aria-orientation',
-	'aria-pressed',
-	'aria-readonly',
-	'aria-relevant',
-	'aria-required',
-	'aria-selected',
-	'aria-sort',
+	'aria-atomic', // true/false
+	'aria-autocomplete', // token
+	'aria-busy', // true/false
+	'aria-checked', // tristate (true/false/mixed/undefined)
+	'aria-current', // token
+	'aria-disabled', // true/false
+	'aria-expanded', // true/false/undefined
+	'aria-haspopup', // token
+	'aria-hidden', // true/false/undefined
+	'aria-invalid', // token
+	'aria-keyshortcuts', // string
+	'aria-live', // token
+	'aria-modal', // true/false
+	'aria-multiline', // true/false
+	'aria-multiselectable', // true/false
+	'aria-orientation', // token
+	'aria-pressed', // tristate (true/false/mixed/undefined)
+	'aria-readonly', // true/false
+	'aria-relevant', // token list
+	'aria-required', // true/false
+	'aria-selected', // true/false/undefined
+	'aria-sort', // token
 ];
 
 export const sensitivelyBases: AttributeList = [];
