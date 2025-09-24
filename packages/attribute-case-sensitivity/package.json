@@ -1,6 +1,6 @@
 {
 	"name": "stylelint-attribute-case-sensitivity",
-	"version": "2.0.2",
+	"version": "2.1.0",
 	"description": "Allow or disallow case-sensitivity for attribute selectors",
 	"keywords": [
 		"stylelint-plugin"
