@@ -20,23 +20,62 @@ export const defaultBases: AttributeList = [
 ];
 
 export const insensitivelyBases: AttributeList = [
-	'autocomplete',
+	/* HTML standard 4.16.2 Case-sensitivity of selectors https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors */
+	'accept',
+	'accept-charset',
+	/* align */ // Non-conforming features
+	/* alink */ // Non-conforming features
+	/* axis */ // Non-conforming features
+	/* bgcolor */ // Non-conforming features
 	'charset',
-	'contenteditable',
-	'crossorigin',
+	'checked',
+	/* clear */ // Non-conforming features
+	/* codetype */ // Non-conforming features
+	/* color */ // Non-conforming features
+	/* compact */ // Non-conforming features
+	/* declare */ // Non-conforming features
+	'defer',
 	'dir',
+	/* direction */ // Non-conforming features (<marquee> element)
+	'disabled',
 	'enctype',
-	'hidden',
+	/* face */ // Non-conforming features (<font> element)
+	/* frame */ // Non-conforming features
 	'hreflang',
 	'http-equiv',
 	'lang',
+	/* language */ // Non-conforming features
+	/* link */ // Non-conforming features
+	'media',
 	'method',
+	'multiple',
+	/* nohref */ // Non-conforming features
+	/* noresize */ // Non-conforming features (<frame> element)
+	/* noshade */ // Non-conforming features
+	/* nowrap */ // Non-conforming features
+	'readonly',
 	'rel',
+	/* rev */ // Non-conforming features
+	/* rules */ // Non-conforming features
+	'scope',
+	/* scrolling */ // Non-conforming feature
+	'selected',
+	'shape',
+	'target',
+	/* text */ // Non-conforming features
+	'type',
+	/* valign */ // Non-conforming features
+	/* valuetype */ // Non-conforming features (<param> element)
+	/* vlink */ // Non-conforming features
+
+	/* Other attributes in the HTML standard */
+	'autocomplete',
+	'contenteditable',
+	'crossorigin',
+	'hidden',
 	'spellcheck',
 	'style',
-	'target',
 	'translate',
-	'type',
 
 	/* "modern browsers treat the role or aria-* attribute values as ASCII case-insensitive" https://www.w3.org/TR/html-aria/#case-sensitivity */
 	'role',
