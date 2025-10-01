@@ -9,7 +9,7 @@
 		"stylelint": "^16.15.0"
 	},
 	"devDependencies": {
-		"@types/node": "^24.3.3",
+		"@types/node": "^24.5.2",
 		"@w0s/eslint-config": "^9.1.0",
 		"@w0s/tsconfig": "^1.7.0",
 		"eslint": "^9.35.0",
