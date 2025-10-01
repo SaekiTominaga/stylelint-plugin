@@ -12,7 +12,7 @@
 		"@types/node": "^24.3.3",
 		"@w0s/eslint-config": "^9.1.0",
 		"@w0s/tsconfig": "^1.7.0",
-		"eslint": "^9.35.0",
+		"eslint": "^9.36.0",
 		"prettier": "^3.6.2",
 		"rimraf": "^6.0.1",
 		"stylelint-test-rule-node": "^0.4.0",
