@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'packages/root-colors/src/**/*.ts'
+      - 'packages/root-colors/package.json'
+      - 'package.json'
   workflow_dispatch:
 
 permissions: {}
