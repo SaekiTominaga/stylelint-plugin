@@ -16,7 +16,7 @@
 		"prettier": "^3.6.2",
 		"rimraf": "^6.0.1",
 		"stylelint-test-rule-node": "^0.4.0",
-		"typescript": "^5.9.2"
+		"typescript": "^5.9.3"
 	},
 	"private": true,
 	"workspaces": [
