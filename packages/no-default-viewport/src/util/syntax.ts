@@ -10,7 +10,9 @@
  *
  * @returns e.g. 'vi'
  */
-export const getUnit = (declarationValue: string, units: string[]): string | undefined => {
-	const matchGroups = new RegExp(`\\b[+\\-]?(?:[0-9]*\\.[0-9]+|[0-9]+)(?:[eE][+\\-]?[0-9]+)?(?<unit>${units.join('|')})\\b`, 'gv').exec(declarationValue)?.groups;
+export const getUnit = (declarationValue: string, units: readonly string[]): string | undefined => {
+	const matchGroups = new RegExp(`\\b[+\\-]?(?:[0-9]*\\.[0-9]+|[0-9]+)(?:[eE][+\\-]?[0-9]+)?(?<unit>${units.join('|')})\\b`, 'gv').exec(
+		declarationValue,
+	)?.groups;
 	return matchGroups?.['unit'];
 };
