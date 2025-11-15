@@ -24,9 +24,9 @@ const ruleFunction: Rule =
 	(
 		primary: unknown,
 		secondaryOptions?: Readonly<{
-			default?: AttributeList;
-			i?: AttributeList;
-			s?: AttributeList;
+			default?: readonly AttributeList;
+			i?: readonly AttributeList;
+			s?: readonly AttributeList;
 		}>,
 	) =>
 	(root, result) => {

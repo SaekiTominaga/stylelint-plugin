@@ -6,7 +6,7 @@
  *
  * @returns If it matches, true
  */
-export const isMatch = (name: string, list: (string | RegExp)[]): boolean =>
+export const isMatch = (name: string, list: readonly (string | RegExp)[]): boolean =>
 	list.some((item) => {
 		if (item instanceof RegExp) {
 			return item.test(name);
