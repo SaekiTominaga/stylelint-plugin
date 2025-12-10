@@ -6,23 +6,13 @@ import pluginRootColors from '../packages/root-colors/dist/index.js';
 export default {
 	plugins: [pluginDisplayMultiKeyword, pluginNoDefaultViewport, pluginRootColors],
 	rules: {
-		/* [plugin] display-multi-keyword*/
-		'plugin/display-multi-keyword': [
-			true,
-			{
-				severity: 'warning',
-			},
-		],
+		/* display-multi-keyword*/
+		'plugin/display-multi-keyword': true,
 
-		/* [plugin] no-default-viewport */
-		'plugin/no-default-viewport': [
-			true,
-			{
-				severity: 'warning',
-			},
-		],
+		/* no-default-viewport */
+		'plugin/no-default-viewport': true,
 
-		/* [plugin] root-colors */
+		/* root-colors */
 		'plugin/root-colors': true,
 	},
 };
