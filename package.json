@@ -3,7 +3,7 @@
 	"type": "module",
 	"scripts": {
 		"format": "prettier -w .",
-		"js-lint": "eslint packages/*/src/**/*.ts"
+		"lint": "eslint packages/*/src/**/*.ts *.{js,mjs}"
 	},
 	"dependencies": {
 		"stylelint": "^16.26.1"
