@@ -1,4 +1,4 @@
-name: JavaScript files
+name: Package files
 
 on:
   pull_request:
@@ -26,4 +26,4 @@ jobs:
         with:
           node-version: '24'
       - run: npm ci
-      - run: npm run js-lint
+      - run: npm run lint
