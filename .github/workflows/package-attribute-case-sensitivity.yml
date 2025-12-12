@@ -2,8 +2,7 @@ name: attribute-case-sensitivity
 on:
   pull_request:
     paths:
-      - 'packages/attribute-case-sensitivity/src/**/*.ts'
-      - 'packages/attribute-case-sensitivity/package.json'
+      - 'packages/attribute-case-sensitivity/**'
       - 'package.json'
   workflow_dispatch:
 

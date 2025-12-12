@@ -2,8 +2,7 @@ name: display-multi-keyword
 on:
   pull_request:
     paths:
-      - 'packages/display-multi-keyword/src/**/*.ts'
-      - 'packages/display-multi-keyword/package.json'
+      - 'packages/display-multi-keyword/**'
       - 'package.json'
   workflow_dispatch:
 

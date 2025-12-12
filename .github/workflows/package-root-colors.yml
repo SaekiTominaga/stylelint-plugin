@@ -2,8 +2,7 @@ name: root-colors
 on:
   pull_request:
     paths:
-      - 'packages/root-colors/src/**/*.ts'
-      - 'packages/root-colors/package.json'
+      - 'packages/root-colors/**'
       - 'package.json'
   workflow_dispatch:
 
