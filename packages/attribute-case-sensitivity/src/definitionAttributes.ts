@@ -1,4 +1,4 @@
-export type AttributeList = (string | RegExp)[];
+export type AttributeList = readonly (string | RegExp)[];
 
 export const defaultBases: AttributeList = [
 	'class',
