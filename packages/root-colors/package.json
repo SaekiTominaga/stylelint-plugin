@@ -29,6 +29,7 @@
 		"prebuild": "rimraf dist/* -g",
 		"build": "tsc",
 		"lint": "eslint src/**/*.ts",
+		"pretest": "tsc --noEmit",
 		"test": "node src/index.test.ts"
 	},
 	"peerDependencies": {
