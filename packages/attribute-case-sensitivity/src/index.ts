@@ -3,11 +3,11 @@ import selectorParser from 'postcss-selector-parser';
 import { defaultBases, insensitivelyBases, sensitivelyBases, type AttributeList } from './definitionAttributes.ts';
 import { isMatch as isAttributeMatch } from './util/attribute.ts';
 
+type Identifier = 'default' | 'i' | 's';
+
 const { createPlugin, utils } = stylelint;
 
 export const ruleName = 'plugin/attribute-case-sensitivity';
-
-type Identifier = 'default' | 'i' | 's';
 
 export const messages = utils.ruleMessages(ruleName, {
 	rejected: (attr: string, identifier: Identifier) => {
