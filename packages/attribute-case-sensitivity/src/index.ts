@@ -3,16 +3,18 @@ import selectorParser from 'postcss-selector-parser';
 import { defaultBases, insensitivelyBases, sensitivelyBases, type AttributeList } from './definitionAttributes.ts';
 import { isMatch as isAttributeMatch } from './util/attribute.ts';
 
+type Identifier = 'default' | 'i' | 's';
+
 const { createPlugin, utils } = stylelint;
 
 export const ruleName = 'plugin/attribute-case-sensitivity';
 
 export const messages = utils.ruleMessages(ruleName, {
-	rejected: (attr: string, identifier: string) => {
-		if (identifier === '') {
-			return `The attribute selector \`${attr}\` require \`${identifier}\` identifier`;
+	rejected: (attr: string, identifier: Identifier) => {
+		if (identifier === 'default') {
+			return `Do not set the case-sensitivity identifier for attribute selector \`${attr}\``;
 		}
-		return `Do not set the case-sensitivity identifier for attribute selector \`${attr}\``;
+		return `The attribute selector \`${attr}\` require \`${identifier}\` identifier`;
 	},
 });
 
@@ -71,18 +73,44 @@ const ruleFunction: Rule =
 						return;
 					}
 
-					if (isAttributeMatch(attr.attribute, degaultAttributes) && identifier === undefined) {
-						return;
-					}
-					if (isAttributeMatch(attr.attribute, insensitivelyAttributes) && identifier === 'i') {
-						return;
-					}
-					if (isAttributeMatch(attr.attribute, sensitivelyAttributes) && identifier === 's') {
-						return;
+					let ldealIdentifier: Identifier;
+					switch (identifier) {
+						case undefined: {
+							if (isAttributeMatch(attr.attribute, insensitivelyAttributes)) {
+								ldealIdentifier = 'i';
+							} else if (isAttributeMatch(attr.attribute, sensitivelyAttributes)) {
+								ldealIdentifier = 's';
+							} else {
+								return;
+							}
+							break;
+						}
+						case 'i': {
+							if (isAttributeMatch(attr.attribute, degaultAttributes)) {
+								ldealIdentifier = 'default';
+							} else if (isAttributeMatch(attr.attribute, sensitivelyAttributes)) {
+								ldealIdentifier = 's';
+							} else {
+								return;
+							}
+							break;
+						}
+						case 's': {
+							if (isAttributeMatch(attr.attribute, degaultAttributes)) {
+								ldealIdentifier = 'default';
+							} else if (isAttributeMatch(attr.attribute, insensitivelyAttributes)) {
+								ldealIdentifier = 'i';
+							} else {
+								return;
+							}
+							break;
+						}
+						default:
+							throw new Error(`Unknown identifier: ${identifier}`);
 					}
 
 					utils.report({
-						message: messages.rejected(attr.toString(), identifier ?? ''),
+						message: messages.rejected(attr.toString(), ldealIdentifier),
 						node: ruleNode,
 						result,
 						ruleName,
