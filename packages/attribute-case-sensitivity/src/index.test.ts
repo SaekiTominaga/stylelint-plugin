@@ -39,7 +39,7 @@ testRule({
 [class="foo" i] {
 }
 `,
-			message: messages.rejected('[class="foo" i]', 'i'),
+			message: messages.rejected('[class="foo" i]', 'default'),
 			line: 2,
 			column: 1,
 			endLine: 3,
@@ -50,7 +50,7 @@ testRule({
 [data-xxx="foo" i] {
 }
 `,
-			message: messages.rejected('[data-xxx="foo" i]', 'i'),
+			message: messages.rejected('[data-xxx="foo" i]', 'default'),
 			line: 2,
 			column: 1,
 			endLine: 3,
@@ -61,7 +61,7 @@ testRule({
 [type="foo"] {
 }
 `,
-			message: messages.rejected('[type="foo"]', ''),
+			message: messages.rejected('[type="foo"]', 'i'),
 			line: 2,
 			column: 1,
 			endLine: 3,
@@ -72,7 +72,7 @@ testRule({
 [type="foo" s] {
 }
 `,
-			message: messages.rejected('[type="foo" s]', 's'),
+			message: messages.rejected('[type="foo" s]', 'i'),
 			line: 2,
 			column: 1,
 			endLine: 3,
@@ -120,7 +120,7 @@ testRule({
 [foo="xxx" i] {
 }
 `,
-			message: messages.rejected('[foo="xxx" i]', 'i'),
+			message: messages.rejected('[foo="xxx" i]', 'default'),
 			line: 2,
 			column: 1,
 			endLine: 3,
@@ -131,7 +131,7 @@ testRule({
 [bar1="xxx"] {
 }
 `,
-			message: messages.rejected('[bar1="xxx"]', ''),
+			message: messages.rejected('[bar1="xxx"]', 'i'),
 			line: 2,
 			column: 1,
 			endLine: 3,
@@ -142,7 +142,7 @@ testRule({
 [bar1="xxx" s] {
 }
 `,
-			message: messages.rejected('[bar1="xxx" s]', 's'),
+			message: messages.rejected('[bar1="xxx" s]', 'i'),
 			line: 2,
 			column: 1,
 			endLine: 3,
@@ -153,7 +153,7 @@ testRule({
 [baz="xxx"] {
 }
 `,
-			message: messages.rejected('[baz="xxx"]', ''),
+			message: messages.rejected('[baz="xxx"]', 's'),
 			line: 2,
 			column: 1,
 			endLine: 3,
