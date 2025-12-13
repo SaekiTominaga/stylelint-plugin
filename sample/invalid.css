@@ -1,4 +1,11 @@
-/* display-multi-keyword*/
+/* attribute-case-sensitivity */
+[class='foo' i] {
+}
+
+[accept='foo'] {
+}
+
+/* display-multi-keyword */
 .block {
 	display: block;
 }
