@@ -50,6 +50,6 @@ export default {
 | `i`       | `(string \| RegExp)[]` | List of attribute names that enforce the identifier `i` |
 | `s`       | `(string \| RegExp)[]` | List of attribute names that enforce the identifier `s` |
 
-\* If any property is omitted, its [default value](src/definitionAttributes.ts) is set.
+\* If any property is omitted, its [default value](https://github.com/SaekiTominaga/stylelint-plugin/blob/main/packages/attribute-case-sensitivity/src/definitionAttributes.ts) is set.
 
 \* If you wish to add attributes to the default values, please submit an issue.
