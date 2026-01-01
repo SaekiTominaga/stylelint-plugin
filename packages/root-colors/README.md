@@ -5,35 +5,35 @@
 
 ## Summary
 
-`color` and `background-color` must be specified as a set in the root element.
+It is recommended to use `color` and `background-color` together on the root element.
 
-The root element is `:root { }` or `html { }`.
+Typically, the term <dfn>[root element](https://drafts.csswg.org/css-display-4/#root-element)</dfn> refers to the `<html>` element. However, the [CSS specification](https://www.w3.org/TR/css-backgrounds-3/#body-background) states that <q>It is recommended that authors of HTML documents specify the canvas background using the `BODY` element rather than the `HTML` element</q>. Therefore, this plugin performs linting on the `<body>` element by default.
 
 ```css
 /* 🆖 Do not specify only either `color` or `background-color` in the root element */
-:root {
+body {
   color: #000;
 }
 
-html,
+body,
 .foo {
   background-color: #fff;
 }
 
 /* 🆗 It is good to specify both `color` and `background-color` */
-:root {
+body {
   background-color: #fff;
   color: #000;
 }
 
 /* 🆗 You may use the `background` short hand */
-:root {
+body {
   background: #fff;
   color: #000;
 }
 
 /* 🆗 The `color` and `background-color` are not required */
-:root {
+body {
 }
 
 /* 🆗 Except in the root element, only either `color` or `background-color` may be specified */
@@ -64,7 +64,7 @@ export default {
     'plugin/root-colors': [
       true,
       {
-        root: ['.root'],
+        root: ['#root'],
       },
     ],
   },
@@ -73,6 +73,6 @@ export default {
 
 ### Rule options
 
-| name   | type                 | description                                                                             |
-| ------ | -------------------- | --------------------------------------------------------------------------------------- |
-| `root` | `string \| string[]` | Specifies the selector of the root element. If omitted, it will be `[':root', 'html']`. |
+| name   | type                 | description                                                                    |
+| ------ | -------------------- | ------------------------------------------------------------------------------ |
+| `root` | `string \| string[]` | Specifies the selector of the root element. If omitted, it will be `['body']`. |
