@@ -1,9 +1,10 @@
 import stylelint, { type Rule } from 'stylelint';
 import selectorParser from 'postcss-selector-parser';
-import { defaultBases, insensitivelyBases, sensitivelyBases, type AttributeList } from './definitionAttributes.ts';
+import { defaultBases, insensitivelyBases, sensitivelyBases } from './definitionAttributes.ts';
 import { isMatch as isAttributeMatch } from './util/attribute.ts';
 
 type Identifier = 'default' | 'i' | 's';
+export type AttributeList = readonly (string | RegExp)[];
 
 const { createPlugin, utils } = stylelint;
 
