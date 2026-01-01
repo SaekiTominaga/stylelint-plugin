@@ -1,3 +1,5 @@
+import type { AttributeList } from '../index.ts';
+
 /**
  * Whether the attribute name matches
  *
@@ -6,7 +8,7 @@
  *
  * @returns If it matches, true
  */
-export const isMatch = (name: string, list: readonly (string | RegExp)[]): boolean =>
+export const isMatch = (name: string, list: AttributeList): boolean =>
 	list.some((item) => {
 		if (item instanceof RegExp) {
 			return item.test(name);

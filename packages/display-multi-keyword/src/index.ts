@@ -1,18 +1,18 @@
-import stylelint, { type Rule, type RuleMeta } from 'stylelint';
+import stylelint, { type Rule } from 'stylelint';
 
 const { createPlugin, utils } = stylelint;
 
-export const ruleName = 'plugin/display-multi-keyword';
+export const ruleName = 'plugin/display-multi-keyword' as const;
 
 export const messages = utils.ruleMessages(ruleName, {
 	rejected: (short: string, full: string) => `Use multi-keyword syntax (\`${short}\` → \`${full}\`)`,
 });
 
-const meta: Readonly<RuleMeta> = {
+const meta = {
 	url: 'https://github.com/SaekiTominaga/stylelint-plugin/blob/main/packages/display-multi-keyword/README.md',
-};
+} as const;
 
-const DISPLAY_VALUE: Readonly<Record<string, string>> = {
+const DISPLAY_VALUE = {
 	/* https://drafts.csswg.org/css-display/#display-value-summary */
 	block: 'block flow',
 	'flow-root': 'block flow-root',
@@ -29,7 +29,7 @@ const DISPLAY_VALUE: Readonly<Record<string, string>> = {
 	/* 'block ruby': 'block ruby', */
 	table: 'block table',
 	'inline-table': 'inline table',
-};
+} as const;
 
 const ruleFunction: Rule = (primary: unknown) => (root, result) => {
 	const validOptions = utils.validateOptions(result, ruleName, {

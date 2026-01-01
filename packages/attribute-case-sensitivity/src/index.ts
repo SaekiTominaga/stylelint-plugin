@@ -1,13 +1,14 @@
-import stylelint, { type Rule, type RuleMeta } from 'stylelint';
+import stylelint, { type Rule } from 'stylelint';
 import selectorParser from 'postcss-selector-parser';
-import { defaultBases, insensitivelyBases, sensitivelyBases, type AttributeList } from './definitionAttributes.ts';
+import { defaultBases, insensitivelyBases, sensitivelyBases } from './definitionAttributes.ts';
 import { isMatch as isAttributeMatch } from './util/attribute.ts';
 
 type Identifier = 'default' | 'i' | 's';
+export type AttributeList = readonly (string | RegExp)[];
 
 const { createPlugin, utils } = stylelint;
 
-export const ruleName = 'plugin/attribute-case-sensitivity';
+export const ruleName = 'plugin/attribute-case-sensitivity' as const;
 
 export const messages = utils.ruleMessages(ruleName, {
 	rejected: (attr: string, identifier: Identifier) => {
@@ -18,9 +19,9 @@ export const messages = utils.ruleMessages(ruleName, {
 	},
 });
 
-const meta: Readonly<RuleMeta> = {
+const meta = {
 	url: 'https://github.com/SaekiTominaga/stylelint-plugin/blob/main/packages/attribute-case-sensitivity/README.md',
-};
+} as const;
 
 const ruleFunction: Rule =
 	(

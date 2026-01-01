@@ -1,6 +1,4 @@
-export type AttributeList = readonly (string | RegExp)[];
-
-export const defaultBases: AttributeList = [
+export const defaultBases = [
 	'class',
 	'for',
 	'id',
@@ -17,9 +15,9 @@ export const defaultBases: AttributeList = [
 	'aria-flowto', // ID reference list
 	'aria-labelledby', // ID reference list
 	'aria-owns', // ID reference list
-];
+] as const;
 
-export const insensitivelyBases: AttributeList = [
+export const insensitivelyBases = [
 	/* HTML standard 4.16.2 Case-sensitivity of selectors https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors */
 	'accept',
 	'accept-charset',
@@ -101,6 +99,6 @@ export const insensitivelyBases: AttributeList = [
 	'aria-required', // true/false
 	'aria-selected', // true/false/undefined
 	'aria-sort', // token
-];
+] as const;
 
-export const sensitivelyBases: AttributeList = [];
+export const sensitivelyBases = [] as const;
