@@ -12,7 +12,7 @@ const meta = {
 	url: 'https://github.com/SaekiTominaga/stylelint-plugin/blob/main/packages/root-colors/README.md',
 } as const;
 
-const DEFAULT_ROOT_SELECTORS = [':root', 'html'] as const;
+const DEFAULT_ROOT_SELECTORS = ['body'] as const;
 
 const ruleFunction: Rule = (primary: unknown, secondaryOptions?: Readonly<{ root: string | string[] }>) => (root, result) => {
 	const validOptions = utils.validateOptions(

@@ -8,87 +8,57 @@ testRule({
 
 	accept: [
 		{
-			code: ':root { background-color: #000; color: #000 }',
+			code: 'body { background-color: #000; color: #000 }',
 		},
 		{
-			code: ':root { color: #000; background: url(foo) #000 repeat }',
+			code: 'body, .foo { color: #000; background-color: #000 }',
 		},
 		{
-			code: ':root {}',
+			code: ':is(body, .foo) { color: #000; background: url(foo) #000 repeat }',
 		},
 		{
-			code: 'html { color: #000; background-color: #000 }',
-		},
-		{
-			code: 'html { background: url(foo) #000 repeat; color: #000 }',
-		},
-		{
-			code: 'html {}',
+			code: 'body {}',
 		},
 		{
 			code: '.foo { color: #000 }',
 		},
 		{
-			code: 'html, :root, .foo {}',
+			code: 'body, .foo {}',
 		},
 	],
 
 	reject: [
 		{
-			code: 'html { background-color: #000 }',
-			message: messages.rejected('html'),
+			code: 'body { background-color: #000 }',
+			message: messages.rejected('body'),
 			line: 1,
 			column: 1,
 			endLine: 1,
 			endColumn: 5,
 		},
 		{
-			code: 'html { background: url(foo) #000 repeat }',
-			message: messages.rejected('html'),
+			code: 'body { background: url(foo) #000 repeat }',
+			message: messages.rejected('body'),
 			line: 1,
 			column: 1,
 			endLine: 1,
 			endColumn: 5,
 		},
 		{
-			code: 'html { color: #000 }',
-			message: messages.rejected('html'),
+			code: 'body { color: #000 }',
+			message: messages.rejected('body'),
 			line: 1,
 			column: 1,
 			endLine: 1,
 			endColumn: 5,
 		},
 		{
-			code: ':root { background-color: #000 }',
-			message: messages.rejected(':root'),
+			code: 'body, .foo { background-color: #000 }',
+			message: messages.rejected('body, .foo'),
 			line: 1,
 			column: 1,
 			endLine: 1,
-			endColumn: 6,
-		},
-		{
-			code: ':root { background: url(foo) #000 repeat }',
-			message: messages.rejected(':root'),
-			line: 1,
-			column: 1,
-			endLine: 1,
-			endColumn: 6,
-		},
-		{
-			code: ':root { color: #000 }',
-			message: messages.rejected(':root'),
-			line: 1,
-			column: 1,
-			endLine: 1,
-			endColumn: 6,
-		},
-		{
-			code: 'html, :root, .foo { background-color: #000 }',
-			message: messages.rejected('html, :root, .foo'),
-			line: 1,
-			column: 1,
-			endLine: 1,
-			endColumn: 18,
+			endColumn: 11,
 		},
 	],
 });
@@ -99,53 +69,53 @@ testRule({
 	config: [
 		true,
 		{
-			root: '.root',
+			root: '#root',
 		},
 	],
 
 	accept: [
 		{
-			code: '.root { background-color: #000; color: #000 }',
+			code: '#root { background-color: #000; color: #000 }',
 		},
 		{
-			code: '.root { color: #000; background: url(foo) #000 repeat }',
+			code: '#root, .foo { color: #000; background: url(foo) #000 repeat }',
 		},
 		{
-			code: '.root {}',
+			code: ':is(#root, .foo) {}',
 		},
 		{
-			code: ':root { color: #000 }',
+			code: 'body { color: #000 }',
 		},
 	],
 
 	reject: [
 		{
-			code: '.root { background-color: #000 }',
-			message: messages.rejected('.root'),
+			code: '#root { background-color: #000 }',
+			message: messages.rejected('#root'),
 			line: 1,
 			column: 1,
 			endLine: 1,
 			endColumn: 6,
 		},
 		{
-			code: '.root { background: url(foo) #000 repeat }',
-			message: messages.rejected('.root'),
+			code: '#root { background: url(foo) #000 repeat }',
+			message: messages.rejected('#root'),
 			line: 1,
 			column: 1,
 			endLine: 1,
 			endColumn: 6,
 		},
 		{
-			code: '.root { color: #000 }',
-			message: messages.rejected('.root'),
+			code: '#root { color: #000 }',
+			message: messages.rejected('#root'),
 			line: 1,
 			column: 1,
 			endLine: 1,
 			endColumn: 6,
 		},
 		{
-			code: '.root, .foo { background-color: #000 }',
-			message: messages.rejected('.root, .foo'),
+			code: '#root, .foo { background-color: #000 }',
+			message: messages.rejected('#root, .foo'),
 			line: 1,
 			column: 1,
 			endLine: 1,

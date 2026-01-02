@@ -1,7 +1,7 @@
 {
 	"name": "stylelint-root-colors",
 	"version": "1.0.1",
-	"description": "`color` and `background-color` must be specified as a set in the root element",
+	"description": "It is recommended to use `color` and `background-color` together on the root element",
 	"keywords": [
 		"stylelint-plugin",
 		"accessibility",
