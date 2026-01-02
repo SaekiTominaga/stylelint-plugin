@@ -1,6 +1,6 @@
 {
 	"name": "stylelint-root-colors",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "It is recommended to use `color` and `background-color` together on the root element",
 	"keywords": [
 		"stylelint-plugin",
