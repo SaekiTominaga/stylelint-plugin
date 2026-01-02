@@ -32,7 +32,7 @@ body {
   color: #000;
 }
 
-/* 🆗 The `color` and `background-color` are not required */
+/* 🆗 The `color` and `background-color` are not required, but can be overridden with the `required` option */
 body {
 }
 
@@ -83,6 +83,7 @@ export default {
       true,
       {
         root: ['#root'],
+        required: true,
       },
     ],
   },
@@ -91,6 +92,23 @@ export default {
 
 ### Rule options
 
-| name   | type                 | description                                                                    |
-| ------ | -------------------- | ------------------------------------------------------------------------------ |
-| `root` | `string \| string[]` | Specifies the selector of the root element. If omitted, it will be `['body']`. |
+| name       | type                 | default    | description                                       |
+| ---------- | -------------------- | ---------- | ------------------------------------------------- |
+| `root`     | `string \| string[]` | `['body']` | Specifies the selector of the root element        |
+| `required` | `boolean`            | `false`    | Make both `color` and `background-color` required |
+
+\* Note that setting `required: true` will considered problem when the code is divided into multiple declaration blocks as shown below.
+
+```css
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+.any-selector {
+}
+
+body /* considered problem */ {
+  line-height: 1.8;
+}
+```

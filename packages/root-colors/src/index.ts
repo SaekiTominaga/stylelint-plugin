@@ -14,77 +14,95 @@ const meta = {
 
 const DEFAULT_ROOT_SELECTORS = ['body'] as const;
 
-const ruleFunction: Rule = (primary: unknown, secondaryOptions?: Readonly<{ root: string | string[] }>) => (root, result) => {
-	const validOptions = utils.validateOptions(
-		result,
-		ruleName,
-		{
-			actual: primary,
-			possible: [true],
-		},
-		{
-			actual: secondaryOptions,
-			possible: {
-				root: [(value) => typeof value === 'string'],
+const ruleFunction: Rule =
+	(
+		primary: unknown,
+		secondaryOptions?: Readonly<{
+			root?: string | string[];
+			required?: boolean;
+		}>,
+	) =>
+	(root, result) => {
+		const validOptions = utils.validateOptions(
+			result,
+			ruleName,
+			{
+				actual: primary,
+				possible: [true],
 			},
-			optional: true,
-		},
-	);
+			{
+				actual: secondaryOptions,
+				possible: {
+					root: [(value: unknown) => typeof value === 'string'],
+					required: [(value: unknown) => typeof value === 'boolean'],
+				},
+				optional: true,
+			},
+		);
 
-	if (!validOptions) {
-		return;
-	}
-
-	let rootSelectors: readonly string[] = DEFAULT_ROOT_SELECTORS;
-	if (secondaryOptions !== undefined) {
-		if (Array.isArray(secondaryOptions.root)) {
-			rootSelectors = secondaryOptions.root;
-		} else {
-			rootSelectors = [secondaryOptions.root];
-		}
-	}
-
-	root.walkRules((ruleNode) => {
-		const { selector, selectors } = ruleNode;
-
-		if (!selectors.some((selectorPart) => rootSelectors.includes(selectorPart))) {
+		if (!validOptions) {
 			return;
 		}
 
-		let colorValue: string | undefined;
-		let backgroundColorValue: string | undefined;
+		const rootSelectors = ((): readonly string[] => {
+			if (secondaryOptions?.root !== undefined) {
+				if (Array.isArray(secondaryOptions.root)) {
+					return secondaryOptions.root;
+				}
 
-		ruleNode.walkDecls((decl) => {
-			switch (decl.prop) {
-				case 'color': {
-					colorValue = decl.value;
-					break;
-				}
-				case 'background-color': {
-					backgroundColorValue = decl.value;
-					break;
-				}
-				case 'background': {
-					backgroundColorValue = decl.value; // TODO: これで正常に動作するが、本来はショートハンド値をパースして色情報のみを抜き出すべき
-					break;
-				}
-				default:
+				return [secondaryOptions.root];
 			}
-		});
 
-		if ((colorValue === undefined && backgroundColorValue === undefined) || (colorValue !== undefined && backgroundColorValue !== undefined)) {
-			return;
-		}
+			return DEFAULT_ROOT_SELECTORS;
+		})();
 
-		utils.report({
-			result: result,
-			ruleName: ruleName,
-			message: messages.rejected(selector),
-			node: ruleNode,
-			word: selector,
+		const required = secondaryOptions?.required ?? false;
+
+		root.walkRules((ruleNode) => {
+			const { selector, selectors } = ruleNode;
+
+			if (!selectors.some((selectorPart) => rootSelectors.includes(selectorPart))) {
+				return;
+			}
+
+			let colorValue: string | undefined;
+			let backgroundColorValue: string | undefined;
+
+			ruleNode.walkDecls((decl) => {
+				switch (decl.prop) {
+					case 'color': {
+						colorValue = decl.value;
+						break;
+					}
+					case 'background-color': {
+						backgroundColorValue = decl.value;
+						break;
+					}
+					case 'background': {
+						backgroundColorValue = decl.value; // TODO: これで正常に動作するが、本来はショートハンド値をパースして色情報のみを抜き出すべき
+						break;
+					}
+					default:
+				}
+			});
+
+			if (required && colorValue !== undefined && backgroundColorValue !== undefined) {
+				return;
+			}
+
+			if (!required && ((colorValue === undefined && backgroundColorValue === undefined) || (colorValue !== undefined && backgroundColorValue !== undefined))) {
+				return;
+			}
+
+			utils.report({
+				result: result,
+				ruleName: ruleName,
+				message: messages.rejected(selector),
+				node: ruleNode,
+				word: selector,
+			});
 		});
-	});
-};
+	};
 
 ruleFunction.ruleName = ruleName;
 ruleFunction.messages = messages;

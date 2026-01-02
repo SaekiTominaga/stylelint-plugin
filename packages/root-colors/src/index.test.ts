@@ -217,3 +217,44 @@ testRule({
 		},
 	],
 });
+
+testRule({
+	plugins: [plugin],
+	ruleName: ruleName,
+	config: [
+		true,
+		{
+			required: true,
+		},
+	],
+
+	reject: [
+		{
+			code: 'body { }',
+			message: messages.rejected('body'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 5,
+		},
+		{
+			code: `
+body { background-color: #000; color: #000 }
+body { }
+`,
+			message: messages.rejected('body'),
+			line: 3,
+			column: 1,
+			endLine: 3,
+			endColumn: 5,
+		},
+		{
+			code: 'body, .foo { any-property: value }',
+			message: messages.rejected('body, .foo'),
+			line: 1,
+			column: 1,
+			endLine: 1,
+			endColumn: 11,
+		},
+	],
+});
