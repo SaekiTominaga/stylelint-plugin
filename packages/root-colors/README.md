@@ -54,7 +54,7 @@ The following screenshot shows a user-defined dark mode configuration in Firefox
 
 ▼ Firefox 130 (2024) <q>Colors</q> Settings
 
-<img src="assets/setting_firefox130.png" alt="Dialog with color selection palettes for Text, Background, Unvisited Links, and Visited Links" width="954" height="741">
+<img src="assets/setting_firefox130.png" alt="Dialog with color selection palettes for Text, Background, Unvisited Links, and Visited Links" width="1780" height="1386">
 
 And around 2024, browsers began implementing forced dark mode.
 
