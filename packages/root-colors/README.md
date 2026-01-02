@@ -46,11 +46,11 @@ body {
 
 The text and background colors in browsers have long been customizable by users.
 
-The following screenshot shows a user-defined dark mode configuration in Firefox's “Manage Colors” settings, where the text color is set to white and the background color is set to black.
-
 ▼ Internet Explorer 3 (1996) <q>General</q> Settings
 
 <img src="https://raw.githubusercontent.com/SaekiTominaga/stylelint-plugin/refs/heads/main/packages/root-colors/assets/setting_ie3.png" alt="Dialog with color selection palettes for Text, Background, Visited Links, and Unvisited Links" width="404" height="448">
+
+The following screenshot shows a user-defined dark mode configuration in Firefox's <q>Manage Colors</q> settings, where the text color is set to white and the background color is set to black.
 
 ▼ Firefox 130 (2024) <q>Colors</q> Settings
 
