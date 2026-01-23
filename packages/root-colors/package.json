@@ -11,20 +11,20 @@
 	"bugs": {
 		"url": "https://github.com/SaekiTominaga/stylelint-plugin/issues"
 	},
-	"license": "MIT",
-	"author": "Saeki Tominaga",
-	"files": [
-		"dist/**/*.d.ts",
-		"dist/**/*.js"
-	],
-	"type": "module",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"types": "dist/index.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/SaekiTominaga/stylelint-plugin.git"
 	},
+	"license": "MIT",
+	"author": "Saeki Tominaga",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist/**/*.d.ts",
+		"dist/**/*.js"
+	],
 	"scripts": {
 		"prebuild": "rimraf dist/* -g",
 		"build": "tsc",
