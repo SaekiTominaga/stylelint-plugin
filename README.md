@@ -13,10 +13,6 @@
 
 <dl>
   <div>
-    <dt><a href="packages/display-multi-keyword">stylelint-display-multi-keyword</a></dt>
-    <dd>Use multi-keyword values for <code>display</code> property</dd>
-  </div>
-  <div>
     <dt><a href="packages/no-default-viewport">stylelint-no-default-viewport</a></dt>
     <dd>Disallow default viewport-percentage units</dd>
   </div>

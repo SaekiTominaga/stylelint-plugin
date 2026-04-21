@@ -5,11 +5,6 @@
 [accept='foo'] {
 }
 
-/* display-multi-keyword */
-.block {
-	display: block;
-}
-
 /* no-default-viewport */
 .box {
 	margin: 10lvi 10vb;
