@@ -1,11 +1,11 @@
 # stylelint-attribute-case-sensitivity
 
 [![npm version](https://badge.fury.io/js/stylelint-attribute-case-sensitivity.svg)](https://www.npmjs.com/package/stylelint-attribute-case-sensitivity)
-[![Workflow status](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/package-attribute-case-sensitivity.yml/badge.svg)](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/package-attribute-case-sensitivity.yml)
+[![CI status](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/SaekiTominaga/stylelint-plugin/actions/workflows/ci.yml)
 
 ## Summary
 
-CSS Selectors Level 4 defines identifiers for [attribute selectors' case-sensitivity](https://www.w3.org/TR/selectors-4/#attribute-case).
+CSS Selectors Level 4 defines identifiers for [attribute selector's case-sensitivity](https://www.w3.org/TR/selectors-4/#attribute-case).
 
 This function sets whether to allow or disallow each of the three patterns: no identifier, `i` identifier, and `s` identifier.
 
