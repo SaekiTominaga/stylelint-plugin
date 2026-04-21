@@ -15,10 +15,10 @@
 	"devDependencies": {
 		"@types/node": "24.10.9",
 		"@w0s/eslint-config": "9.5.1",
-		"@w0s/tsconfig": "2.0.1",
+		"@w0s/tsconfig": "3.0.0",
 		"prettier": "3.8.1",
 		"rimraf": "6.1.3",
 		"stylelint-test-rule-node": "1.1.0",
-		"typescript": "5.9.3"
+		"typescript": "6.0.3"
 	}
 }
