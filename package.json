@@ -6,7 +6,8 @@
 		"packages/*"
 	],
 	"scripts": {
-		"lint": "eslint packages/*/src/**/*.ts *.{js,mjs}"
+		"lint": "eslint packages/*/src/**/*.ts *.{js,mjs}",
+		"test": "npm run test --workspaces"
 	},
 	"dependencies": {
 		"stylelint": "17.6.0"
