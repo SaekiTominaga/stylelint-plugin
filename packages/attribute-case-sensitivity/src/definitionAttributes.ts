@@ -7,6 +7,7 @@ export const defaultBases = [
 
 	/^data-/v,
 
+	'aria-actions', // ID reference list
 	'aria-activedescendant', // ID reference
 	'aria-controls', // ID reference list
 	'aria-describedby', // ID reference list
