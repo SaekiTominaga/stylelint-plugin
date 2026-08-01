@@ -10,7 +10,7 @@
 		"test": "npm run test --workspaces"
 	},
 	"dependencies": {
-		"stylelint": "17.13.0"
+		"stylelint": "17.14.1"
 	},
 	"devDependencies": {
 		"@types/node": "24.10.9",
