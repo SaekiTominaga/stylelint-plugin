@@ -9,11 +9,11 @@ export default [
 		ignores: ['packages/*/dist'],
 	},
 	{
-		files: ['**/*.ts'],
+		files: ['packages/*/src/**/*.ts'],
 		languageOptions: {
 			parserOptions: {
 				tsconfigRootDir: import.meta.dirname,
-				project: './packages/*/tsconfig.lint.json',
+				project: 'packages/*/tsconfig.lint.json',
 			},
 		},
 	},
