@@ -1,5 +1,5 @@
-import stylelint, { type Rule } from 'stylelint';
 import selectorParser from 'postcss-selector-parser';
+import stylelint, { type Rule } from 'stylelint';
 import { defaultBases, insensitivelyBases, sensitivelyBases } from './definitionAttributes.ts';
 import { isMatch as isAttributeMatch } from './util/attribute.ts';
 

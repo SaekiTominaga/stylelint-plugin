@@ -3,28 +3,31 @@
 	"version": "3.0.1",
 	"description": "It is recommended to use `color` and `background-color` together on the root element",
 	"keywords": [
-		"stylelint-plugin",
+		"a11y",
 		"accessibility",
-		"a11y"
+		"stylelint-plugin"
 	],
 	"homepage": "https://github.com/SaekiTominaga/stylelint-plugin#readme",
 	"bugs": {
 		"url": "https://github.com/SaekiTominaga/stylelint-plugin/issues"
 	},
+	"license": "MIT",
+	"author": "Saeki Tominaga",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/SaekiTominaga/stylelint-plugin.git"
 	},
-	"license": "MIT",
-	"author": "Saeki Tominaga",
-	"type": "module",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"types": "dist/index.d.ts",
 	"files": [
 		"dist/**/*.d.ts",
 		"dist/**/*.js"
 	],
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"prebuild": "rimraf dist/* -g",
 		"build": "tsc",
@@ -34,8 +37,5 @@
 	},
 	"peerDependencies": {
 		"stylelint": "^16.0.0 || ^17.0.0"
-	},
-	"publishConfig": {
-		"access": "public"
 	}
 }
