@@ -1,4 +1,6 @@
-export const defaultBases = [
+import type { Attribute } from './index.ts';
+
+const defaultBases: Attribute[] = [
 	'class',
 	'for',
 	'id',
@@ -16,9 +18,9 @@ export const defaultBases = [
 	'aria-flowto', // ID reference list
 	'aria-labelledby', // ID reference list
 	'aria-owns', // ID reference list
-] as const;
+];
 
-export const insensitivelyBases = [
+const insensitivelyBases: Attribute[] = [
 	/* HTML standard 4.16.2 Case-sensitivity of selectors https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors */
 	'accept',
 	'accept-charset',
@@ -100,6 +102,8 @@ export const insensitivelyBases = [
 	'aria-required', // true/false
 	'aria-selected', // true/false/undefined
 	'aria-sort', // token
-] as const;
+];
 
-export const sensitivelyBases = [] as const;
+const sensitivelyBases: Attribute[] = [];
+
+export { defaultBases, insensitivelyBases, sensitivelyBases };

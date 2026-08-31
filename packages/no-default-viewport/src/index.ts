@@ -3,9 +3,9 @@ import { getUnit } from './util/syntax.ts';
 
 const { createPlugin, utils } = stylelint;
 
-export const ruleName = 'plugin/no-default-viewport' as const;
+const ruleName = 'plugin/no-default-viewport' as const;
 
-export const messages = utils.ruleMessages(ruleName, {
+const messages = utils.ruleMessages(ruleName, {
 	rejected: (defaultUnit: string) =>
 		`Disallow default viewport-percentage units (\`${defaultUnit}\` → \`s${defaultUnit}\`, \`l${defaultUnit}\` or \`d${defaultUnit}\`)`,
 });
@@ -55,3 +55,5 @@ ruleFunction.messages = messages;
 ruleFunction.meta = meta;
 
 export default createPlugin(ruleName, ruleFunction);
+
+export { ruleName, messages };

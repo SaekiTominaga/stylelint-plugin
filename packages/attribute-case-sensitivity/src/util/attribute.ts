@@ -1,4 +1,4 @@
-import type { AttributeList } from '../index.ts';
+import type { Attribute } from '../index.ts';
 
 /**
  * Whether the attribute name matches
@@ -8,7 +8,7 @@ import type { AttributeList } from '../index.ts';
  *
  * @returns If it matches, true
  */
-export const isMatch = (name: string, list: AttributeList): boolean =>
+export const isMatch = (name: string, list: readonly Attribute[]): boolean =>
 	list.some((item) => {
 		if (item instanceof RegExp) {
 			return item.test(name);

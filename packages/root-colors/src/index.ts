@@ -2,9 +2,9 @@ import stylelint, { type Rule } from 'stylelint';
 
 const { createPlugin, utils } = stylelint;
 
-export const ruleName = 'plugin/root-colors' as const;
+const ruleName = 'plugin/root-colors' as const;
 
-export const messages = utils.ruleMessages(ruleName, {
+const messages = utils.ruleMessages(ruleName, {
 	rejected: (selector: string) => `\`color\` and \`background-color\` must be specified as a set within selector \`${selector}\``,
 });
 
@@ -109,3 +109,5 @@ ruleFunction.messages = messages;
 ruleFunction.meta = meta;
 
 export default createPlugin(ruleName, ruleFunction);
+
+export { ruleName, messages };
