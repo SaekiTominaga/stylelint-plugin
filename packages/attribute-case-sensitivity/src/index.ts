@@ -3,14 +3,14 @@ import stylelint, { type Rule } from 'stylelint';
 import { defaultBases, insensitivelyBases, sensitivelyBases } from './definitionAttributes.ts';
 import { isMatch as isAttributeMatch } from './util/attribute.ts';
 
+type Attribute = string | RegExp;
 type Identifier = 'default' | 'i' | 's';
-export type AttributeList = readonly (string | RegExp)[];
 
 const { createPlugin, utils } = stylelint;
 
-export const ruleName = 'plugin/attribute-case-sensitivity' as const;
+const ruleName = 'plugin/attribute-case-sensitivity' as const;
 
-export const messages = utils.ruleMessages(ruleName, {
+const messages = utils.ruleMessages(ruleName, {
 	rejected: (attr: string, identifier: Identifier) => {
 		if (identifier === 'default') {
 			return `Do not set the case-sensitivity identifier for attribute selector \`${attr}\``;
@@ -27,9 +27,9 @@ const ruleFunction: Rule =
 	(
 		primary: unknown,
 		secondaryOptions?: Readonly<{
-			default?: AttributeList;
-			i?: AttributeList;
-			s?: AttributeList;
+			default?: readonly Attribute[];
+			i?: readonly Attribute[];
+			s?: readonly Attribute[];
 		}>,
 	) =>
 	(root, result) => {
@@ -106,8 +106,9 @@ const ruleFunction: Rule =
 							}
 							break;
 						}
-						default:
+						default: {
 							throw new Error(`Unknown identifier: ${identifier}`);
+						}
 					}
 
 					utils.report({
@@ -126,3 +127,5 @@ ruleFunction.messages = messages;
 ruleFunction.meta = meta;
 
 export default createPlugin(ruleName, ruleFunction);
+
+export { type Attribute, ruleName, messages };
