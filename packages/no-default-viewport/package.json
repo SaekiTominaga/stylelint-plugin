@@ -1,6 +1,6 @@
 {
 	"name": "stylelint-no-default-viewport",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Disallow default viewport-percentage units",
 	"keywords": [
 		"stylelint-plugin"
