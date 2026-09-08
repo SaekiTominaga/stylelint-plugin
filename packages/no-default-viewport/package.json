@@ -27,7 +27,7 @@
 		"access": "public"
 	},
 	"scripts": {
-		"prebuild": "rimraf dist/* -g",
+		"prebuild": "rimraf dist",
 		"build": "tsc",
 		"pretest": "tsc --noEmit",
 		"test": "node src/index.test.ts & node --experimental-test-coverage --test src/util/*.test.ts"
