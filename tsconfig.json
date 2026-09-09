@@ -2,6 +2,9 @@
 	"extends": "@w0s/tsconfig/node",
 	"compilerOptions": {
 		/* Emit */
-		"declaration": true
+		"declaration": true,
+
+		/* Projects */
+		"incremental": false
 	}
 }
