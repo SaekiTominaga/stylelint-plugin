@@ -30,7 +30,7 @@
 		"prebuild": "rimraf dist",
 		"build": "tsc",
 		"pretest": "tsc --noEmit",
-		"test": "node src/index.test.ts & node --experimental-test-coverage --test src/util/*.test.ts"
+		"test": "node src/index.test.ts & node --experimental-test-coverage --test \"src/util/*.test.ts\""
 	},
 	"peerDependencies": {
 		"stylelint": "^16.0.0 || ^17.0.0"
