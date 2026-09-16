@@ -1,12 +1,7 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions: {}
@@ -51,4 +46,5 @@ jobs:
 
       - run: npm ci
 
-      - run: npm test
+      - name: Run test
+        run: npm test
