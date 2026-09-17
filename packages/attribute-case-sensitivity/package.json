@@ -16,13 +16,15 @@
 		"url": "git+https://github.com/SaekiTominaga/stylelint-plugin.git"
 	},
 	"files": [
-		"dist/**/*.d.ts",
-		"dist/**/*.js"
+		"dist"
 	],
 	"type": "module",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
 	"publishConfig": {
 		"access": "public"
 	},
