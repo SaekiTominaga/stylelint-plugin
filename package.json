@@ -19,7 +19,7 @@
 		"@types/node": "26.4.0",
 		"@w0s/oxlint-config": "1.0.9",
 		"@w0s/tsconfig": "3.2.2",
-		"concurrently": "10.0.5",
+		"concurrently": "10.0.6",
 		"oxfmt": "0.70.0",
 		"publint": "0.3.24",
 		"rimraf": "6.1.3",
