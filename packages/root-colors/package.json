@@ -37,6 +37,6 @@
 		"test": "node src/index.test.ts"
 	},
 	"peerDependencies": {
-		"stylelint": "^16.0.0 || ^17.0.0"
+		"stylelint": "^16.0.0 || ^17.0.0 || ^18.0.0"
 	}
 }
