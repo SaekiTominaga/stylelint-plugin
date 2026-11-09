@@ -62,9 +62,6 @@ const ruleFunction: Rule =
 						return;
 					}
 
-					// @ts-expect-error: ts(2551)
-					const identifier = attr.insensitive ? 'i' : (attr.raws.insensitiveFlag as string | undefined)?.toLowerCase();
-
 					const degaultAttributes = secondaryOptions?.default ?? defaultBases;
 					const insensitivelyAttributes = secondaryOptions?.i ?? insensitivelyBases;
 					const sensitivelyAttributes = secondaryOptions?.s ?? sensitivelyBases;
@@ -75,39 +72,29 @@ const ruleFunction: Rule =
 					}
 
 					let ldealIdentifier: Identifier;
-					switch (identifier) {
-						case undefined: {
-							if (isAttributeMatch(attr.attribute, insensitivelyAttributes)) {
-								ldealIdentifier = 'i';
-							} else if (isAttributeMatch(attr.attribute, sensitivelyAttributes)) {
-								ldealIdentifier = 's';
-							} else {
-								return;
-							}
-							break;
+					if (attr.insensitive) {
+						if (isAttributeMatch(attr.attribute, degaultAttributes)) {
+							ldealIdentifier = 'default';
+						} else if (isAttributeMatch(attr.attribute, sensitivelyAttributes)) {
+							ldealIdentifier = 's';
+						} else {
+							return;
 						}
-						case 'i': {
-							if (isAttributeMatch(attr.attribute, degaultAttributes)) {
-								ldealIdentifier = 'default';
-							} else if (isAttributeMatch(attr.attribute, sensitivelyAttributes)) {
-								ldealIdentifier = 's';
-							} else {
-								return;
-							}
-							break;
+					} else if (attr.sensitive) {
+						if (isAttributeMatch(attr.attribute, degaultAttributes)) {
+							ldealIdentifier = 'default';
+						} else if (isAttributeMatch(attr.attribute, insensitivelyAttributes)) {
+							ldealIdentifier = 'i';
+						} else {
+							return;
 						}
-						case 's': {
-							if (isAttributeMatch(attr.attribute, degaultAttributes)) {
-								ldealIdentifier = 'default';
-							} else if (isAttributeMatch(attr.attribute, insensitivelyAttributes)) {
-								ldealIdentifier = 'i';
-							} else {
-								return;
-							}
-							break;
-						}
-						default: {
-							throw new Error(`Unknown identifier: ${identifier}`);
+					} else {
+						if (isAttributeMatch(attr.attribute, insensitivelyAttributes)) {
+							ldealIdentifier = 'i';
+						} else if (isAttributeMatch(attr.attribute, sensitivelyAttributes)) {
+							ldealIdentifier = 's';
+						} else {
+							return;
 						}
 					}
 
